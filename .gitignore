@@ -1,0 +1,14 @@
+*~
+*.aux
+*.bbl
+*.log
+*.blg
+*.fls
+*.out
+*.fdb_latexmk
+*.nav
+*.cm*
+*.o
+*.exe
+_build
+main.pdf
