@@ -48,6 +48,8 @@ I'm not very familiar with the aforementioned related work (in Coq, Ocaml, Verdi
 
 5. Risk analysis: we should write about the risks involved (our proposed approach doesn't work then what are the alternatives?)
 
+6. See more technical discussion in [[* Technical principles]]
+
 
 ** Applications / Case study
 
@@ -63,3 +65,16 @@ Should we have other applications in addition to SEGA?
 ** Others
 
 - Should add Frederic's and Truong's prior NSF support: none.
+
+* Technical principles
+
+** Implementation model of timed automata
+
+There are different ways / models of implementing TAs in code, for example:
+- Define constants (enums) for different states and implement each TA as a big =if-else= or =switch-case= structure (if in this state and this event occurs and some conditions are met then change to another state and do something).
+- Use OOP (or emulate OOP): each class represents one state or one type of states; each class defines an execution method to process events and conditions and execute actions; the state machine is implemented as running the executation method on the current state object, utilizing dispatching in OOP.
+
+
+Two questions:
+1. Will we restrict to one or a few implementation methods? Which ones?
+2. For each method, we may need to develop a different way to annotate the code and describe specifications; we may even need a different set of annotations, etc.  Is there a unified method?
