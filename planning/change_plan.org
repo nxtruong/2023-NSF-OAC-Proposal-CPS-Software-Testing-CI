@@ -7,6 +7,23 @@
 
 3. Lacks technical details and / or examples of translating from formal models to specs, ghost code, etc.
 
+* Todo
+
+** SEGA [0/4]
+- [ ] Get more info about SEGA complexity and structure
+- [ ] Introduce SEGA (and define the acronym) better, focusing on the problem, its complexity and impacts
+- [ ] Should mention that we have complete access to SEGA, including the code (link), its hardware, etc. to carry out the full case study.
+- [ ] Restructure SEGA case study section to make it easier to follow / understand, especially the tasks and the approach.
+
+** Robotics application [0/3]
+- [ ] Beginning: write that the methodology and tools developed in this project are applicable to other applications, give examples, and that we are planning to perform case studies on both SEGA and robotics system, so it's not limited to SEGA and communication protocol.
+- [ ] Write a section on autonomous robots / multi-agents application: the experiment, will use ICONS Lab, what kind of issues that we can apply the research outputs on, what we will get out, etc.
+- [ ] Add this case study to budgets and plan (year 3).
+
+** Broader impact [0/3]
+- [ ] Add Frederic's course
+- [ ] Add Alex's planned course
+- [ ] Add Truong's planned course on autonomous vehicles, for which tools developed in this project can be applied and taught to engineers who may not be very familiar with formal methods and software testing.
 
 * Plan
 
