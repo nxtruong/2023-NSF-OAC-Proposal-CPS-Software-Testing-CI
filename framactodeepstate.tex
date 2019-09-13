@@ -1,3 +1,4 @@
+\notetruong{We should update Figure 1 and relate this section to the steps in Figure 1.}
 While \framac allows, ideally, for proof of correctness of annotated code, in many real-world instances it will be impossible to prove correctness, either because the proof is too hard to construct or because the code is not in fact correct.  While \framac provides some mechanisms for generating possible counterexamples to a proof, and limited test case generation, it is far from ideal in this setting.  A full workflow for verification of realistic systems, therefore, requires a first-class \emph{dynamic} analysis component.  Furthermore, such a component should not limit itself to a single method for generating test cases, as with tools such as KLEE~\cite{KLEE}, Pex~\cite{Pex}, or the test generation tools provided by \framac~\cite{PathCrawler}.  Predicting which test generation methods will discover a fault in code, or simply scale to provide effective exploration of code paths, is notoriously difficult.  Furthermore, most tools are research prototypes and have known bugs that prevent application to some subset of programs.  We therefore aim to provide a \emph{flexible} dynamic front-end that provides a one-stop solution to the problem of dynamic analysis, either to provide confidence in code that cannot be proven correct, or to discover a counterexample showing that the code is not correct.  \deepstate~\cite{DeepState} provides such a front-end.
 
 The research challenge is to translate \acsl-annotated code for use in \framac into a full-featured \deepstate test harness.  This problem can further be broken down into four key-subproblems:
@@ -77,3 +78,8 @@ This effort also connects to a second fuzzing research thrust: making specificat
 
 % In principle, of course, users can write a new function (a kind of ``ghost function'' not really executed---in practice, a test harness) expressing the desired mix of API calls that preserve an invariant; however, this is a serious burden on a user, and users are likely to make errors in this task~\cite{CFV08,AMAI,scriptstospecs,groce2015verified,groce2018verified}; we instead propose to let users annotate (in an extension of \acsl) sets of functions to be tested as an API-call-sequence group.  E.g., annotating a set of file system functions ({\tt mkdir}, {\tt rmdir}, {\tt readdir}, etc.) as such a group could allow the automatic generation of a DeepState harness that checks for cases where a sequence of valid function calls can violate a precondition or cause a fault despite preconditions being satisfied.
 
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End:
