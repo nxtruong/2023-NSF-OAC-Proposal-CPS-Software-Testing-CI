@@ -13,7 +13,8 @@ WP1 consists of the following major tasks:
 
 \item T1.2: This task will develop several methods for automatic translation of timed automaton networks into \acsl annotations and/or ghost code.  Depending on the target usage, whether for statis analysis or dynamic analysis or being inspected by programmers, a suitable method will be developed.
 
-\item T1.3: In this task, we will implement the methods developed in T1.2 as \framac plugins.  The developed tools will be tested on the case study application in WP3, whose results will inform the tool development process.
+\item T1.3: In this task, we will implement the methods developed in T1.2 as \framac plugins.  The developed tools will be tested on the case studies % application
+  in WP3, whose results will inform the tool development process.
 \end{itemize}
 
 One Ph.D. student will be needed to conduct the work in this work package, which will last for the entire duration of the project.
@@ -26,7 +27,7 @@ networks that can be translated into \acsl and ghost code, and the
 ability to use that code to prove properties.  We will use benchmark
 examples (realistic code found on GitHub or in embedded systems
 textbooks) to some extent, and simple test cases for constructs, but
-primarily rely on the SEGA protocol and implementation code to ensure
+primarily rely on the case studies (the SEGA protocol and implementation code as well as the multi-robot coordination plan and implementation code) to ensure
 that our efforts are successful.
 
 
@@ -49,8 +50,9 @@ Work Package 2 will be determined by the successful generation of
 DeepState harnesses for \acsl annotated code, and the successful
 application of those harnesses to generate tests for realistic
 systems.  We will again use benchmarks and simple examples to some
-extent, but primarily rely on our connection to the large, real-world
-SEGA project.  In the case of test generation, in addition to faults
+extent, but primarily rely on our connection to the %large, real-world SEGA project.
+complex, real-world SEGA and robotics case studies.
+In the case of test generation, in addition to faults
 detected, we will use code coverage and other standard benchmarks,
 including methods proposed for evaluating fuzzers in high quality
 research \cite{FuzzerHicks}.
@@ -58,28 +60,37 @@ research \cite{FuzzerHicks}.
 
 \subsubsection{Work Package 3 (WP3)}
 
-This work package will focus on the application described in Section~\ref{sec:case-study}, as both a way to inform the methodology and tool developments in the other work packages and a case study to validate our methods and tools.
-WP3 is divided into two tasks:
+This work package will focus on the applications described in Sections~\ref{sec:case-study} and \ref{sec:case-study-robots}, as both a way to inform the methodology and tool developments in the other work packages and case studies in two completely different domains to validate our methods and tools.
+WP3 is divided into two parts for the two case studies:
 \begin{itemize}[labelsep=3pt,leftmargin=12pt]
-\item T3.1: In this task, the existing application system will by
-  studied thoroughly to extract the key requirments and
-  characteristics of the embedded system implementation.  Timed
-  automaton models of the communication protocol used in the system,
-  at different levels of abstraction, will be developed and formally
-  verified in \uppaal and/or \prism. The system information and models
-  resulted from this task will inform the semantics design and method
-  developments in WP1 and WP2. As time allows, and pending results
-  with communication protocol, we will extend this to include sensing
-  and control elements of SEGA.
-\item T3.2: This task will apply the tools developed in WP1 and WP2 to the application system, in order to detect and fix bugs in the current implementation that cause the intermittent failures mentioned in Section~\ref{sec:case-study}.  It will also provide feedback to the other work packages to refine and improve the tools developed in this project.
+\item SEGA case study (Section~\ref{sec:case-study}): this application is divided into two tasks:
+  \begin{itemize}
+  \item T3.1: In this task, the existing SEGA system will be
+    studied thoroughly to extract the key requirments and
+    characteristics of the embedded system implementation.  Timed
+    automaton models of the communication protocol used in the system,
+    at different levels of abstraction, will be developed and formally
+    verified in \uppaal and/or \prism. The system information and models
+    resulted from this task will inform the semantics design and method
+    developments in WP1 and WP2. As time allows, and pending results
+    with communication protocol, we will extend this to include sensing
+    and control elements of SEGA.
+  \item T3.2: This task will apply the tools developed in WP1 and WP2 to the SEGA system, in order to detect and fix bugs in the current implementation that cause the intermittent failures mentioned in Section~\ref{sec:case-study}.  It will also provide feedback to the other work packages to refine and improve the tools developed in this project.
+  \end{itemize}
+
+\item Robotics case study (Section~\ref{sec:case-study-robots}): this study will be conducted in the last year of the project and is divided into two tasks:
+  \begin{itemize}
+  \item T4.1: In this task, a multi-robot coordination algorithm currently used with our existing multi-robot system will be modeled as a network of timed automata.  Using our insights into the robotics application, we will express its performance specifications, particularly its safety requirements, in temporal logics and formally verify or test them in tools like \uppaal, \prism, or \S-TaLiRo.  The results of this task will inform the extension of the semantics and methods developed in WP1 and WP2 to applications beyond communication protocols.
+  \item T4.2: This task will apply the tools developed in WP1 and WP2 to the coordinated multi-robot system, in order to validate the implementation code and detect and fix its bugs.  It will also provide feedback to the other work packages to refine and improve the tools developed in this project.
+  \end{itemize}
 \end{itemize}
 
 As the tasks in this work package are conducted in tandem with WP1 and WP2, to form an informative feedback loop with the developments in other work packages, it will last for the entire duration of the project.
-We expect that a group of undergraduate students, in collaboration with the Ph.D. students in WP1 and WP2, will do the tasks in this work package.
+We expect that groups of undergraduate students and two Ph.D. students, who will join the project in the second and third years, in collaboration with the Ph.D. students in WP1 and WP2, will do the tasks in this work package.
 
 \paragraph{Evaluation:} In essence, this task \emph{is} the evaluation
-aspect of our project, which forms one of the three major thrusts of
-the project.  The successful application of WP1 and WP2 tools to SEGA is
+aspect of our project, which forms one of the major thrusts of
+the project.  The successful application of WP1 and WP2 tools to the case studies is
 essentially the driving factor in determining our success in the
 project, and the key feedback to drive changes to our research
 priorities or technical choices.  The measure of ``successful
@@ -91,16 +102,10 @@ of generated tests.
 \subsubsection{Timeline}
 \label{sec:time-line}
 
-The project will be organized in three phases.
-In the first phase, T3.1 will be conducted along with T1.1 and T2.1, and will inform the development in these tasks.
-In the second phase, the focus will be on the development of translation methods in T1.2 and T2.2.
-In the last phase, software tools will be developed (tasks T1.3 and T2.3) and applied to the case study (task T3.2), whose results and feedback will help refine the developed tools.
-It is important that the tasks of the work packages are carried out in tandem and in close collaboration.
-The timeline of the tasks will be structured as shown in Figure~\ref{fig:project-schedule}.
-
-\begin{figure}[!tp]
-  \centering
-  \resizebox{.6\textwidth}{!}{%
+\begin{wrapfigure}[16]{r}{.52\textwidth}
+%\begin{figure}[!tp]
+%  \centering
+  \resizebox{.52\textwidth}{!}{%
   \begin{ganttchart}[%Specs
     hgrid style/.style={black, dotted},
     vgrid, %={*2{black,dotted}, *1{black, dashed},
@@ -108,7 +113,7 @@ The timeline of the tasks will be structured as shown in Figure~\ref{fig:project
       %*2{black,dotted}, *1{black, dashed},
       %*2{black,dotted}, *1{black, solid}},
     x unit=3mm,
-    y unit chart=7mm,
+    y unit chart=6mm,
     y unit title=5mm,
     %time slot format=isodate,
     title height=1,
@@ -198,20 +203,32 @@ The timeline of the tasks will be structured as shown in Figure~\ref{fig:project
         group/.append style={fill=blue}
     ]{}{19}{36}\\ [grid]
     \ganttbluebar[
-        name=T31
+        name=T311
     ]{T3.1}{1}{6}\\ [grid]
     \ganttbluebar[
-        name=T32
-    ]{T3.2}{19}{36}
-        
+        name=T312
+    ]{T3.2}{19}{36}\\ [grid]
+    \ganttbluebar[
+        name=T321
+    ]{T4.1}{25}{27}\\ [grid]        
+    \ganttbluebar[
+        name=T322
+    ]{T4.2}{28}{36}
     % %Implementing links
     % \ganttlink[link mid=0.75]{Documentation}{FME}
     % \ganttlink{FMETutorial}{FME}
-  \end{ganttchart}}
-\caption{Project schedule.}
-\label{fig:project-schedule}
-\end{figure}
-
+  \end{ganttchart}}%
+\caption{Project schedule.}%
+\label{fig:project-schedule}%
+%\end{figure}
+\end{wrapfigure}
+%
+The project will be organized in three phases.
+In the first phase, T3.1 will be conducted along with T1.1 and T2.1, and will inform the development in these tasks.
+In the second phase, the focus will be on the development of translation methods in T1.2 and T2.2.
+In the last phase, software tools will be developed (tasks T1.3 and T2.3) and applied to the case studies (tasks T3.2, T4.1, and T4.2), whose results and feedback will help refine the developed tools.
+It is important that the tasks of the work packages are carried out in tandem and in close collaboration.
+The timeline of the tasks will be structured as shown in Figure~\ref{fig:project-schedule}.
 
 %%% Local Variables:
 %%% mode: latex
