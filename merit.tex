@@ -41,18 +41,17 @@ This is achieved in a sequence of steps:
   There are three possible outcomes:
   {\bf verified:} the implementation can be formally verified, which means that it correctly implements the TA design and therefore meets the design specifications;
   {\bf bugs found:} bugs are found in the implementation, showing that
-    it can violate the specifications. In this case, the bugs need to be fixed and the process repeated;
-  {\bf undecided:} the static analysis tool is unable to prove or disprove correctness of the implementation.
-  In this case, we continue with the next step.
+    it can violate the specification, and the bugs must be fixed; and
+  {\bf undecided:} the static analysis tool is unable to prove or disprove correctness of the implementation,
+  in which case, we continue with the next step.
 \item In the event of an undecided outcome from the static analysis
   step, we attempt to refute correctness (or increase our confidence
-  in it) via dynamic analysis --- test case generation.
+  in it) via dynamic analysis---automated test generation.
   Ghost code and runtime assertions as well as a test-harness driver are automatically generated from the
-  annotated implementation code to augment the implementation code.
+  annotated implementation code.
 \item The augmented implementation code is then analyzed using the
-  \deepstate~\cite{DeepState} framework to apply symbolic execution and graybox fuzzing
-  to generate test cases.  These test cases may refute the correctness
-  of the design, or they may fail to do so, leaving us more confident
+  \deepstate~\cite{DeepState} framework.  Generated test cases may
+  prove the system faulty, or they may leave us more confident
   the system is correct.
 \end{enumerate}
 
@@ -85,9 +84,8 @@ problem of reconciling a model semantics and a runtime semantics,
 without unrealistic burden on engineers.
 
 
-\paragraph{Tools:} In this part we will consider the C programming
-language, \framac~\cite{KKP2015:FAC} and \deepstate~\cite{DeepState}
-for the analysis of programs, and
+\paragraph{Tools:} We will focus on C code, using \framac~\cite{KKP2015:FAC} and \deepstate~\cite{DeepState}
+for the analysis of code, and
 \uppaal~\footnote{\url{http://www.uppaal.org}} and
 \prism~\cite{KNP2011:CAV}) for the analysis of protocols.  The primary open research questions here are numerous, and include:
 (1) how to handle C constructs that are not part of the toy language;
@@ -106,5 +104,5 @@ Our focus will be on \emph{practical} solutions, guided by the
 embedded domain experts, rather than on purely theoretical approaches
 that do not scale to real systems.  In terms of both principles and
 tools, this project aims to make fundamental contributions to both
-system design and (specifically) static and dynamic analysis tool
-design and specification language design and semantics.
+system design and (specifically) specification language design and
+semantics and static and dynamic analysis methods.

@@ -22,8 +22,7 @@ instantiations of this goal: providing a single language, interface,
 and semantics that is applied to a variety of methods (static or
 dynamic) for checking that a specification holds.  This project aims
 to further extend this goal by extending it to include a formal
-timed-automata model and to connect the primarily static approaches of
-\framac and the dynamic approaches of DeepState.
+timed-automata model and to connect the primarily static and dynamic approaches.
 
 Verdi~\cite{WWP2015:PLDI,WWA2016:CPP} is a framework for the
 implementation and verification of distributed systems using \Coq. The
@@ -67,8 +66,8 @@ coverage.  % and for more scalable testing (by testing internal components of th
 Finally, regardless of how thorough the tests are, generally they will
 not be able to provide a formal guarantee of the conformance between
 the implementation and the model / specifications.  On the contrary,
-if the system code is available, it is possible that our proposed
-approach using a static analysis tool like \framac can provide such
+if the system code is available, our proposed
+approach can potentially provide such a
 formal guarantee.
 
 
