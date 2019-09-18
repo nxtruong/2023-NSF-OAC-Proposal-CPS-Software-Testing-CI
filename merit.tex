@@ -1,17 +1,12 @@
-The aim of this proposal is to:
-\begin{itemize}
-\item identify a set of principles for the analysis (formal, static,
+The aim of this proposal is to (1) identify a set of principles for the analysis (formal, static,
   and dynamic) of communication protocols and
-  their implementations in embedded systems,
-\item implement these theoretical principles in tools usable by
-  engineers developing such systems,
-\item use these tools in two real applications.
+  their implementations in embedded systems; (2) implement these theoretical principles in tools usable by
+  engineers developing such systems; and (3) use these tools in two real applications.
   In the first case study, we will formally, statically, and dynamically analyze networks
   of wireless sensor/actuator nodes deployed in the Southwest Experimental Garden
   Array (SEGA)~\cite{YamEtAl10,FliEtAl12}, a distributed facility for
   examining climatic, genetic, and environmental factors in plant ecology.
   The second case study will use the tools to formally verify and dynamically test the distributed coordination code of multiple autonomous ground and aerial robots in a lab setting.
-\end{itemize}
 
 
 \begin{figure}[!t]
@@ -44,13 +39,11 @@ This is achieved in a sequence of steps:
 \item The implementation code with the \acsl annotations and ghost code
   is verified by a static analysis tool, in our case \framac.
   There are three possible outcomes:
-  \begin{description}
-  \item[verified] The implementation can be formally verified, which means that it correctly implements the TA design and therefore meets the design specifications.
-  \item[bugs found] Bugs are found in the implementation, showing that
-    it can violate the specifications. In this case, the bugs need to be fixed and the process repeated.
-  \item[undecided] The static analysis tool is unable to prove or disprove correctness of the implementation.
+  {\bf verified:} the implementation can be formally verified, which means that it correctly implements the TA design and therefore meets the design specifications;
+  {\bf bugs found:} bugs are found in the implementation, showing that
+    it can violate the specifications. In this case, the bugs need to be fixed and the process repeated;
+  {\bf undecided:} the static analysis tool is unable to prove or disprove correctness of the implementation.
   In this case, we continue with the next step.
-  \end{description}
 \item In the event of an undecided outcome from the static analysis
   step, we attempt to refute correctness (or increase our confidence
   in it) via dynamic analysis --- test case generation.
@@ -73,7 +66,7 @@ imperative programs, the two main questions are:
   implement them, how can we annotate the programs to be able to check
   that they correctly implement the protocol, or to find bugs?
 \item Given a set of annotated programs, how can we automatically
-  generate a harness (efficiently) representing the test generation problem for that system?
+  generate a test harness for the system?
 \end{itemize}
 For the first problem, we will consider a toy imperative language with the 
 usual control structures, unbounded integers, addresses, and 
@@ -97,19 +90,17 @@ language, \framac~\cite{KKP2015:FAC} and \deepstate~\cite{DeepState}
 for the analysis of programs, and
 \uppaal~\footnote{\url{http://www.uppaal.org}} and
 \prism~\cite{KNP2011:CAV}) for the analysis of protocols.  The primary open research questions here are numerous, and include:
-\begin{itemize}[itemsep=0pt]
-\item How to handle C constructs that are not part of the toy language
-\item How to extend existing specification languages to support timing and uncertainty
-\item How to assign the same meaning to a specification construct in
+(1) how to handle C constructs that are not part of the toy language;
+(2) how to extend existing specification languages to support timing and uncertainty;
+(3) how to assign the same meaning to a specification construct in
   the static \framac context and the dynamic \deepstate context
-\item How to handle intra-program parallelism
-\item How to effectively translate a failed proof effort in \framac
+(4) how to handle intra-program parallelism;
+(5) how to effectively translate a failed proof effort in \framac
   into a representation of a testing problem (to find counterexamples
-  refuting that proof could be possible) in a dynamic setting
-\item How to ensure that the methods are sufficiently automatic
+  refuting that proof could be possible) in a dynamic setting; and
+(6) how to ensure that the methods are sufficiently automatic
   and behave in ways engineers (not modeling, static, or dynamic
-  analysis experts) will expect
-\end{itemize}
+  analysis experts) will expect.
 
 Our focus will be on \emph{practical} solutions, guided by the
 embedded domain experts, rather than on purely theoretical approaches

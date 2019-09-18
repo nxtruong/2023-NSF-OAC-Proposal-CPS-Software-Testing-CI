@@ -1,11 +1,9 @@
-The proposed work will be organized in three work packages,
+The proposed work will be organized into three work packages,
 corresponding to the directions described above.  Because in this
-project evaluation is essentially a core thrust of the project itself,
-we describe evaluation as part of the work plan.
+project evaluation is a thrust of the project itself,
+we also describe evaluation here.
 
-\subsubsection{Work Package 1 (WP1)}
-
-This work package will develop the principles and extensions to \framac for automatic translation of networks of timed automata into \acsl and ghost code, as described in the first research thrust in Section~\ref{sec:ta2framac}.
+\paragraph{Work Package 1 (WP1):} This work package will develop the principles and extensions to \framac for automatic translation of networks of timed automata into \acsl and ghost code, as described in the first research thrust in Section~\ref{sec:ta2framac}.
 WP1 consists of the following major tasks:
 \begin{itemize}[labelsep=3pt,leftmargin=12pt]
 
@@ -27,18 +25,21 @@ networks that can be translated into \acsl and ghost code, and the
 ability to use that code to prove properties.  We will use benchmark
 examples (realistic code found on GitHub or in embedded systems
 textbooks) to some extent, and simple test cases for constructs, but
-primarily rely on the case studies (the SEGA protocol and implementation code as well as the multi-robot coordination plan and implementation code) to ensure
-that our efforts are successful.
+primarily rely on the case studies (the SEGA protocol and
+implementation code as well as the multi-robot coordination plan and
+implementation code) for evaluation.
 
 
-\subsubsection{Work Package 2 (WP2)}
-
-This work package will develop methods and tools to automatically translate \acsl-annotated code in \framac into a \deepstate test harness, as described in the second research thrust in Section~\ref{sec:framac2deepstate}.
+\paragraph{Work Package 2 (WP2):}  This work package will develop methods and tools to automatically translate \acsl-annotated code in \framac into a \deepstate test harness, as described in the second research thrust in Section~\ref{sec:framac2deepstate}.
 WP2 is further divided into the following tasks:
 \begin{itemize}[labelsep=3pt,leftmargin=12pt]
 \item T2.1: This task will extend the \eacsl semantics and optimize the implementation of symbolic execution and fuzzing, so that \acsl annotations generated from timed automaton networks (in WP1) can be used in DeepState to test implementation code.
 \item T2.2: This task will develop methods to translate annotations and ghost code generated for static analysis in WP1 to test specifications in \deepstate.  It will be carried out concurrently with tasks T1.1 and T1.2 in WP1, and will inform the design and method development in those tasks.
-\item T2.3: In this task, we will implement the methods developed in T2.1 as extensions to \deepstate.  The tools will be applied to the case study in WP3, whose results will inform the development of the tools.
+\item T2.3: In this task, we will implement the methods developed in
+  T2.1 as extensions to \deepstate.  The tools will be applied to the
+  case study in WP3, whose results will inform the development of the
+  tools.
+\item T2.4: In this task, we will augment \deepstate and fuzzers in the multiple ways described in Section~\ref{sec:framac2deepstate}.  
 \end{itemize}
 
 The execution of this work package will span the entire duration of the project.
@@ -58,12 +59,9 @@ including methods proposed for evaluating fuzzers in high quality
 research \cite{FuzzerHicks}.
 
 
-\subsubsection{Work Package 3 (WP3)}
-
-This work package will focus on the applications described in Sections~\ref{sec:case-study} and \ref{sec:case-study-robots}, as both a way to inform the methodology and tool developments in the other work packages and case studies in two completely different domains to validate our methods and tools.
+\paragraph{Work Package 3 (WP3):}  This work package will focus on the applications described in Sections~\ref{sec:case-study} and \ref{sec:case-study-robots}, as both a way to inform the methodology and tool developments in the other work packages and case studies in two completely different domains to validate our methods and tools.
 WP3 is divided into two parts for the two case studies:
-\begin{itemize}[labelsep=3pt,leftmargin=12pt]
-\item SEGA case study (Section~\ref{sec:case-study}): this application is divided into two tasks:
+\paragraph{SEGA case study (Section~\ref{sec:case-study})} This application is divided into two tasks:
   \begin{itemize}
   \item T3.1: In this task, the existing SEGA system will be
     studied thoroughly to extract the key requirments and
@@ -74,19 +72,25 @@ WP3 is divided into two parts for the two case studies:
     resulted from this task will inform the semantics design and method
     developments in WP1 and WP2. As time allows, and pending results
     with communication protocol, we will extend this to include sensing
-    and control elements of SEGA.
-  \item T3.2: This task will apply the tools developed in WP1 and WP2 to the SEGA system, in order to detect and fix bugs in the current implementation that cause the intermittent failures mentioned in Section~\ref{sec:case-study}.  It will also provide feedback to the other work packages to refine and improve the tools developed in this project.
+    and control elements.
+  \item T3.2: This task will apply the tools developed in WP1 and WP2
+    to the SEGA system, in order to detect and fix bugs in the current
+    implementation that cause the intermittent failures mentioned in
+    Section~\ref{sec:case-study}.  It will also provide feedback to
+    the other work packages to refine and improve our tools.
   \end{itemize}
 
-\item Robotics case study (Section~\ref{sec:case-study-robots}): this study will be conducted in the last year of the project and is divided into two tasks:
+\paragraph {Robotics case study (Section~\ref{sec:case-study-robots})} this study will be conducted in the last year of the project and is divided into two tasks:
   \begin{itemize}
   \item T4.1: In this task, a multi-robot coordination algorithm currently used with our existing multi-robot system will be modeled as a network of timed automata.  Using our insights into the robotics application, we will express its performance specifications, particularly its safety requirements, in temporal logics and formally verify or test them in tools like \uppaal, \prism, or \S-TaLiRo.  The results of this task will inform the extension of the semantics and methods developed in WP1 and WP2 to applications beyond communication protocols.
   \item T4.2: This task will apply the tools developed in WP1 and WP2 to the coordinated multi-robot system, in order to validate the implementation code and detect and fix its bugs.  It will also provide feedback to the other work packages to refine and improve the tools developed in this project.
   \end{itemize}
-\end{itemize}
 
-As the tasks in this work package are conducted in tandem with WP1 and WP2, to form an informative feedback loop with the developments in other work packages, it will last for the entire duration of the project.
-We expect that groups of undergraduate students and two Ph.D. students, who will join the project in the second and third years, in collaboration with the Ph.D. students in WP1 and WP2, will do the tasks in this work package.
+As the tasks in this work package are conducted in tandem with WP1 and WP2, to form a feedback loop with the developments in other work packages, it will last for the entire duration of the project.
+We expect that groups of undergraduate students and two
+Ph.D. students, who will join the project in the second and third
+years, in collaboration with the Ph.D. students in WP1 and WP2, will
+perform the work.
 
 \paragraph{Evaluation:} In essence, this task \emph{is} the evaluation
 aspect of our project, which forms one of the major thrusts of
