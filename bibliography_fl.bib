@@ -4170,30 +4170,65 @@
                   technique.}
 }
 
-
-@Misc{BKL2019:SAC,
-  author =	 {Blanchard, Allan and Kosmatov, Nikolai and
+@Misc{BKL2018:ISSRE,
+author =	 {Blanchard, Allan and Kosmatov, Nikolai and
                   Loulergue, Fr\'{e}d\'{e}ric},
-  title =	 {Logic against Ghosts: Comparison of two Proof Approaches for a List Module},
-  howpublished = {submitted},
-  year = 2018
+title =	 {Towards Reliable Things: Formal Verification of
+                  {IoT} Software with {Frama-C}},
+howpublished = {29th IEEE International Symposium on Software
+                  Reliability Engineering (ISSRE)},
+hlpp_category ={tutorial_presentation},
+year =	 2018,
+abstract =	 {Abstract Among distributed systems, connected
+                  devices and services, also referred to as the
+                  Internet of Things (IoT), have proliferated very
+                  quickly in the past years. There are now billions of
+                  interconnected devices, and this number is
+                  growing. It is anticipated that by 2021, about 46
+                  billions of devices will be in use. Some of these
+                  devices are in service in safety and security
+                  critical domains, and even in domains that are not
+                  necessarily critical, privacy issues may arise with
+                  devices collecting and transmitting a lot of
+                  personal information. Formal methods have been used
+                  successfully for years in highly critical domains,
+                  now they can help to bring security into the IoT
+                  field. In practice it is common to rely on a
+                  combination of formal methods to achieve an
+                  appropriate degree of guarantee: static analyses to
+                  guarantee the absence of runtime errors, deductive
+                  verification of functional correctness, dynamic
+                  verification for parts that cannot be proved using
+                  deductive verification. This tutorial is focused on
+                  Frama-C, which is a source code analysis platform
+                  that aims at conducting verification of
+                  industrial-size programs written in ISO C99 source
+                  code. Frama-C fully supports the combination of
+                  formal methods approach, by providing to its users
+                  with a collection of plug-ins that perform static
+                  and dynamic analysis for safety and security
+                  critical software. Moreover collaborative
+                  verification across cooperating plugins is enabled
+                  by their integration on top of a shared kernel, and
+                  their compliance to a common specification language
+                  ACSL. Recently Frama-C has been applied to the
+                  verification of software in the context of the
+                  Internet of Things.}
 }
 
-
-
 @InProceedings{BKL2018:NFM,
-  author =	 {Blanchard, Allan and Kosmatov, Nikolai and
+author =	 {Blanchard, Allan and Kosmatov, Nikolai and
                   Loulergue, Fr\'{e}d\'{e}ric},
-  title =	 {{Ghosts for Lists: A Critical Module of Contiki
+title =	 {{Ghosts for Lists: A Critical Module of Contiki
                   Verified in Frama-C}},
-  booktitle =	 {Nasa Formal Methods},
-  year =	 2018,
-  series =	 {LNCS},
-  publisher =	 {Springer},
-  number =	 10811,
-  pages =	 {37-53},
-  hlpp_category ={international_conference},
-  abstract =	 {Internet of Things (IoT) applications are becoming
+booktitle =	 {Nasa Formal Methods},
+year =	 2018,
+series =	 {LNCS},
+publisher =	 {Springer},
+number =	 10811,
+pages =	 {37-53},
+hlpp_category ={international_conference},
+abstract =	 {Internet of Things (IoT) applications are becoming
                   increasingly critical and require rigorous formal
                   verification.  In this paper we target Contiki, a
                   widely used open-source OS for IoT, and present a
@@ -4212,8 +4247,207 @@
                   companion array developed for the proof.  Finally,
                   we validate the proposed specification by proving a
                   few functions manipulating lists.},
-  venue =	 {Newport News, VA, USA},
-  doi =		 {10.1007/978-3-319-77935-5_3}
+venue =	 {Newport News, VA, USA},
+doi =		 {10.1007/978-3-319-77935-5_3}
+}
+
+@InProceedings{BKL2018:SECDEV,
+author =	 {Blanchard, Allan and Kosmatov, Nikolai and
+                  Loulergue, Fr\'{e}d\'{e}ric},
+title =	 {Secure Your Things: Secure Development of {IoT}
+Software with {Frama-C}},
+booktitle =	 {IEEE Cybersecurity Development Conference (SecDev)},
+year =	 2018,
+publisher =	 {IEEE},
+pages =	 {126-127},
+doi =		 {10.1109/SecDev.2018.00026},
+hlpp_category ={tutorial_presentation},
+abstract =	 { Among distributed systems, connected devices and
+                  services, also referred to as the Internet of Things
+                  (IoT), have proliferated very quickly in the past
+                  years. There are now billions of interconnected
+                  devices, and this number is growing. It is
+                  anticipated that by 2021, about 46 billions of
+                  devices will be in use.  Some of these devices are
+                  in service in security critical domains, and even in
+                  domains that are not necessarily critical, privacy
+                  issues may arise with devices collecting and
+                  transmitting a lot of personal information. Moreover
+                  insufficiently secured devices may be used for
+                  example for massive distributed denial of service
+                  attacks.  This raises important security
+                  challenges. Formal methods have been used
+                  successfully for years in highly critical domains,
+                  now they can help to bring security into the IoT
+                  field.  While the correctness of an implementation
+                  with respect to a formal functional specification
+                  provides the strongest form of guarantee, it can be
+                  very costly to achieve. In practice it is therefore
+                  more common to rely on a combination of formal
+                  methods to achieve an appropriate degree of
+                  guarantee: static analyses to guarantee the absence
+                  of runtime errors, deductive verification of
+                  functional correctness, dynamic verification for
+                  parts that cannot be proved using deductive
+                  verification.  Frama-C is a source code analysis
+                  platform that aims at conducting verification of
+                  industrial-size programs written in ISO C99 source
+                  code. Frama-C fully supports the combination of
+                  formal methods approach, by providing to its users
+                  with a collection of plug-ins that perform static
+                  and dynamic analysis for safety and security
+                  critical software. Moreover collaborative
+                  verification across cooperating plug-ins is enabled
+                  by their integration on top of a shared kernel, and
+                  their compliance to a common specification language:
+                  ACSL~.  Recently Frama-C has been applied to the
+                  verification of software in the context of the
+                  Internet of Things, more specifically the
+                  verification of modules of Contiki, an open source
+                  operating system for the IoT.}
+}
+
+@Misc{BKL2018:ZINC,
+author =	 {Blanchard, Allan and Kosmatov, Nikolai and
+                  Loulergue, Fr\'{e}d\'{e}ric},
+title =	 {Towards Secure Things, or How to Verify {IoT}
+Software with {Frama-C}},
+howpublished = {Zooming Innovation in Consumer Electronics
+                  International Conference (ZINC)},
+hlpp_category ={tutorial_presentation},
+year =	 2018,
+abstract =	 {It is commonly said the "S" in Internet of Things
+                  (IoT) stands for "Security": when it is not absent,
+                  it is at least unnoticeable. However, security in
+                  IoT becomes an important concern since in both the
+                  industry and everyday life, it is gaining wider and
+                  wider adoption. Thus, IoT is now targeting more
+                  critical domains, and making domains that were not
+                  critical, until now, collect and transmit a lot of
+                  personal data.  For years, this kind of challenges
+                  have been successfully addressed in highly critical
+                  domains using formal methods. Now, formal methods
+                  can help to bring security in the IoT field. Frama-C
+                  is a source code analysis platform used to conduct
+                  verification of industrial-size programs written in
+                  ISO C99. It provides a collection of plug-ins that
+                  perform static and dynamic analysis for safety and
+                  security critical software. These plug-ins can
+                  collaborate to the verification task thanks to their
+                  integration on top of a shared kernel and their
+                  compliance to ACSL, a specification language for C.
+                  Participants will learn how to use different Frama-C
+                  analyzers and how to combine their results. During
+                  the tutorial, several examples and use-cases will
+                  give them a clear practical vision of possible
+                  usages of the underlying static and dynamic analyses
+                  in their everyday work. The presented code fragments
+                  are part of Contiki, a realworld lightweight
+                  operating system for the IoT. Each part consists of
+                  a presentation using slides and live demonstration,
+                  and a session of exercises. The attendees will be
+                  provided a virtual machine image for VirtualBox
+                  containing all the tools ready to use, to work on
+                  the exercises. We will also provide additional
+                  exercises and we will be available during the
+                  conference (and after) to help the attendees who may
+                  want to go beyond the tutorial material.  }
+}
+
+@InProceedings{BKL2019:AFADL,
+author =	 {Blanchard, Allan and Kosmatov, Nikolai and
+                  Loulergue, Fr\'{e}d\'{e}ric},
+title =	 {La logique contre les fant\^{o}mes: comparaison de
+                  deux approches pour la preuve d'un module de listes
+                  cha\^{i}n\'{e}es},
+booktitle =	 {18e journ\'{e}es Approches Formelles dans
+                  l'Assistance au D\'{e}veloppement de Logiciels
+                  (AFADL)},
+year =	 2019,
+month =	 {June},
+location =	 {Toulouse, France},
+hlpp_category ={national_conference}
+}
+
+
+@InProceedings{BLK2019:NFM,
+author =	 {Blanchard, Allan and Loulergue, Fr\'{e}d\'{e}ric and
+                  Kosmatov, Nikolai},
+title =	 {{Towards Full Proof Automation in Frama-C using
+                  Auto-Active Verification}},
+booktitle =	 {Nasa Formal Methods},
+year =	 2019,
+series =	 {LNCS},
+publisher =	 {Springer},
+hlpp_category ={international_conference},
+abstract =	 {While deductive verification is increasingly used on
+                  real-life code, making it fully automatic remains
+                  difficult. The development of powerful SMT solvers
+                  has improved the situation, but some proofs still
+                  require interactive theorem provers in order to
+                  achieve full formal verification. Auto-active
+                  verification relies on additional guiding
+                  annotations (assertions, ghost code, lemma
+                  functions, etc.) and provides an important step
+                  towards a greater automation of the proof. However,
+                  the support of this methodology often remains
+                  partial and depends on the verification tool.  {This
+                  paper presents an experience report on a complete
+                  functional verification of several C programs from
+                  the literature and real-life code using auto-active
+                  verification with the C software analysis platform
+                  Frama-C and its deductive verification plugin
+                  \Wp. The goal is to use automatic solvers to verify
+                  properties that are classically verified with
+                  interactive provers.} {Based on our experience, we}
+discuss the benefits of this methodology and the
+                  current limitations of the tool, as well as
+                  proposals of new features to overcome them.},
+venue =	 {Houston, TX, USA},
+doi =		 {10.1007/978-3-030-20652-9_6},
+pages =	 {88--105}
+}
+
+
+@InProceedings{BKL2019:SAC,
+title =	 {Logic against Ghosts: Comparison of two Proof
+                  Approaches for a List Module},
+author =	 {Blanchard, Allan and Kosmatov, Nikolai and
+                  Loulergue, Fr\'{e}d\'{e}ric},
+booktitle =	 sac,
+year =	 2019,
+publisher =	 {ACM},
+hlpp_category ={international_conference},
+hlpp_educore = {B},
+hlpp_rate =	 24,
+doi =		 {10.1145/3297280.3297495},
+pages =	 {2186-2195},
+note =	 {Best Paper Award},
+abstract =	 {Modern verification projects continue to offer new
+                  challenges for formal verification. One of them is
+                  the linked list module of Contiki, a popular
+                  open-source operating system for the Internet of
+                  Things. It has a rich API and uses a particular list
+                  representation that make it different from the
+                  classical linked list implementations. Being widely
+                  used in the OS, the list module is critical for
+                  reliability and security. A recent work verified the
+                  list module using ghost arrays.  This article
+                  reports on a new verification effort for this
+                  module. Realized in the Frama-C/Wp tool, the new
+                  approach relies on logic lists. A logic list
+                  provides a convenient high-level view of the linked
+                  list. The specifications of all functions are now
+                  proved faster and almost all automatically, only a
+                  small number of auxiliary lemmas and a couple of
+                  assertions being proved interactively in Coq. The
+                  proposed specifications are validated by proving a
+                  few client functions manipulating lists. During the
+                  verification, a more efficient implementation for
+                  one function was found and verified. We compare the
+                  new approach with the previous effort based on ghost
+                  arrays, and discuss the benefits and drawbacks of
+                  both techniques.}
 }
 
 @inproceedings{BKS2008:PARSEC,
@@ -55832,3 +56066,17 @@ doi = {10.1007/978-3-319-89884-1_19}
   volume    = 9131,
   publisher = {Springer}
   }
+
+
+@inproceedings{DBLP:conf/tacs/Paulin-Mohring01,
+author    = {Christine Paulin{-}Mohring},
+title     = {Modelisation of Timed Automata in Coq},
+booktitle = {Theoretical Aspects of Computer Software, 4th International Symposium,
+               {TACS} 2001, Sendai, Japan, October 29-31, 2001, Proceedings},
+pages     = {298--315},
+year      = {2001},
+publisher = {Springer}
+series    = {LNCS},
+volume    = {2215},
+doi       = {10.1007/3-540-45500-0\_15},
+}

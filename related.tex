@@ -24,21 +24,11 @@ dynamic) for checking that a specification holds.  This project aims
 to further extend this goal by extending it to include a formal
 timed-automata model and to connect the primarily static and dynamic approaches.
 
-Verdi~\cite{WWP2015:PLDI,WWA2016:CPP} is a framework for the
-implementation and verification of distributed systems using \Coq. The
-strength of this framework is to allow users to design and prove the
-correctness of a system without considering faults, and apply what is
-called a verification system transformer to modify the system into a
-system that handles faults.  Systems developed in this way are
-executable thanks to \Coq's extraction mechanism (to
-OCaml~\cite{MIN2011:CACM} code). Verdi could not be applied to our
-case study: time is not considered by Verdi and although it is
-possible to port variants of OCaml on
-micro-controllers~\cite{VWC2015:PADL}, there is currently no such
-variant for the micro-controllers deployed in SEGA. Using a framework
-such as Verdi would also mean writing new code using a language
-unfamiliar to SEGA's developers. This proposal instead focuses on the
-analysis of legacy code.
+There are several work on the implementation and verification of distributed systems,
+and code extraction from automata modeling in the proof assistant \Coq~\cite{WWP2015:PLDI,WWA2016:CPP,DBLP:conf/tacs/Paulin-Mohring01}
+Systems developed in this way are executable thanks to \Coq's extraction mechanism (to OCaml~\cite{MIN2011:CACM} code).
+While being very interesting, these proposals require that the developers master \Coq, and start from the modeling activity to generate code.
+They are therefore not applicable in the context of the verification of legacy embedded C code.
 
 Testing real-time systems modeled by networks of timed automata was
 investigated by the authors of the tool \uppaal

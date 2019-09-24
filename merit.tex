@@ -67,9 +67,10 @@ imperative programs, the two main questions are:
 \item Given a set of annotated programs, how can we automatically
   generate a test harness for the system?
 \end{itemize}
-For the first problem, we will consider a toy imperative language with the 
-usual control structures, unbounded integers, addresses, and 
-non-recursive procedures.
+% REMOVED MENTIONS OF THE TOY LANGUAGE
+%For the first problem, we will consider a toy imperative language with the
+%usual control structures, unbounded integers, addresses, and
+%non-recursive procedures.
 
 Note that these problems differ considerably from the more studied,
 but more limited, synthesis problem.  We are not assuming that
@@ -88,15 +89,15 @@ without unrealistic burden on engineers.
 for the analysis of code, and
 \uppaal~\footnote{\url{http://www.uppaal.org}} and
 \prism~\cite{KNP2011:CAV}) for the analysis of protocols.  The primary open research questions here are numerous, and include:
-(1) how to handle C constructs that are not part of the toy language;
-(2) how to extend existing specification languages to support timing and uncertainty;
-(3) how to assign the same meaning to a specification construct in
+% (1) how to handle C constructs that are not part of the toy language;
+(1) how to extend existing specification languages to support timing and uncertainty;
+(2) how to assign the same meaning to a specification construct in
   the static \framac context and the dynamic \deepstate context
-(4) how to handle intra-program parallelism;
-(5) how to effectively translate a failed proof effort in \framac
+(3) how to handle intra-program parallelism;
+(4) how to effectively translate a failed proof effort in \framac
   into a representation of a testing problem (to find counterexamples
   refuting that proof could be possible) in a dynamic setting; and
-(6) how to ensure that the methods are sufficiently automatic
+(5) how to ensure that the methods are sufficiently automatic
   and behave in ways engineers (not modeling, static, or dynamic
   analysis experts) will expect.
 
