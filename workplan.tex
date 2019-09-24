@@ -1,8 +1,7 @@
-
 %\subsubsection{Timeline}
 \label{sec:time-line}
 
-\begin{wrapfigure}[16]{l}{.4\textwidth}
+\begin{wrapfigure}[16]{r}{.4\textwidth}
 %\begin{figure}[!tp]
 %  \centering
   \resizebox{.4\textwidth}{!}{%
@@ -122,34 +121,26 @@
 \label{fig:project-schedule}%
 %\end{figure}
 \end{wrapfigure}
-%
-The project will be organized in three phases, covering three work
-packages, described below.
+
+The project will be organized in three phases, covering three work packages, described below.
 In the first phase, T3.1 will be conducted along with T1.1 and T2.1, and will inform the development in these tasks.
 In the second phase, the focus will be on the development of translation methods in T1.2 and T2.2.
 In the last phase, software tools will be developed (tasks T1.3 and T2.3) and applied to the case studies (tasks T3.2, T4.1, and T4.2), whose results and feedback will help refine the developed tools.
 It is important that the tasks of the work packages are carried out in tandem and in close collaboration.
 The timeline of the tasks will be structured as shown in Figure~\ref{fig:project-schedule}.
 
-%%% Local Variables:
-%%% mode: latex
-%%% TeX-master: "main"
-%%% End:
-
-
 \paragraph{Work Package 1 (WP1):} This work package will develop the
 principles and extensions to \framac for automatic translation of
 networks of timed automata into \acsl and ghost code (see Section~\ref{sec:ta2framac}):
 WP1 consists of the following major tasks:
-\begin{itemize}[labelsep=3pt,leftmargin=12pt]
 
-\item T1.1: This task will study the formal semantics of timed automaton networks defined in \uppaal and \prism, and define an appropriate set of the timed automaton semantics considered in this project.  The semantics would be rich enough for modeling the application systems considered in the project, specifically in WP3, while simple enough for the translation into annotations usable by static analysis tools (\framac) and dynamic analysis tools (\deepstate).  As such, there will be close collaboration and iterative design steps between this task and the other work packages. %WP3 (Application).
 
-\item T1.2: This task will develop several methods for automatic translation of timed automaton networks into \acsl annotations and/or ghost code.  Depending on the target usage, whether for statis analysis or dynamic analysis or being inspected by programmers, a suitable method will be developed.
+$\bullet$ T1.1: This task will study the formal semantics of timed automaton networks defined in \uppaal and \prism, and define an appropriate set of the timed automaton semantics considered in this project.  The semantics would be rich enough for modeling the application systems considered in the project, specifically in WP3, while simple enough for the translation into annotations usable by static analysis tools (\framac) and dynamic analysis tools (\deepstate).  As such, there will be close collaboration and iterative design steps between this task and the other work packages. %WP3 (Application).
 
-\item T1.3: In this task, we will implement the methods developed in T1.2 as \framac plugins.  The developed tools will be tested on the case studies % application
-  in WP3, whose results will inform the tool development process.
-\end{itemize}
+$\bullet$ T1.2: This task will develop several methods for automatic translation of timed automaton networks into \acsl annotations and/or ghost code.  Depending on the target usage, whether for statis analysis or dynamic analysis or being inspected by programmers, a suitable method will be developed.
+
+$\bullet$ T1.3: We will implement the methods developed in T1.2 as \framac plugins.
+The developed tools will be tested on the case studies (WP3), whose results will inform the tool development process.
 
 One Ph.D. student will be needed to conduct the work in this work package, which will last for the entire duration of the project.
 The student will collaborate closely with students in WP2 and WP3, and
