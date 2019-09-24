@@ -26,16 +26,15 @@ engineering system designs, including but not limited to communication
 protocols and supervisory controls (including those relevant to sensor
 networks and IoT systems).  Existing C code that is supposed to
 implement the design, and hence satisfy the design specifications, is provided and needs to be verified.
-Our goal is to certify whether the C code truly implements the complete TA-based design and, if not, find any bugs in the code.
-This is achieved in a sequence of steps:
+Our goal is to certify whether the C code truly implements the complete TA-based design and, if not, find any bugs in the code:
 \begin{enumerate}
 \item First, from the TA, \acsl annotations\footnote{\acsl is the
     specification language of \framac{}.} and possibly ghost C code
   (code that does not contribute to runtime semantics, but assists in
   proof construction) are automatically generated to augment the
-  implementation code. The annotations together with the ghost code
-  sufficiently describe the semantics of the TA; in other words, if
-  the annotated specification can be verified then the TA design is implemented correctly by the code.
+  implementation code. The annotations together with ghost code
+  describe the semantics of the TA: if
+  the annotated specification can be verified, then the TA design is implemented correctly.
 \item The implementation code with the \acsl annotations and ghost code
   is verified by a static analysis tool, in our case \framac.
   There are three possible outcomes:
@@ -47,8 +46,8 @@ This is achieved in a sequence of steps:
 \item In the event of an undecided outcome from the static analysis
   step, we attempt to refute correctness (or increase our confidence
   in it) via dynamic analysis---automated test generation.
-  Ghost code and runtime assertions as well as a test-harness driver are automatically generated from the
-  annotated implementation code.
+  Ghost code, runtime assertions, and test-harness are \emph{automatically generated} from the
+  annotated code.
 \item The augmented implementation code is then analyzed using the
   \deepstate~\cite{DeepState} framework.  Generated test cases may
   prove the system faulty, or they may leave us more confident
@@ -56,10 +55,10 @@ This is achieved in a sequence of steps:
 \end{enumerate}
 
 \paragraph{Principles:} Assuming that a communication protocol is described
-as timed automata~\cite{AD1994:TCS} or probabilistic timed automata,
-which satisfy some temporal logic
-formulas~\cite{BLM2017:LNCS}, and that it is implemented as a set of
-imperative programs, the two main questions are:
+as (probabilistic) timed automata~\cite{AD1994:TCS},
+which satisfy temporal logic
+formulas~\cite{BLM2017:LNCS}, and implemented as a set of
+imperative programs, we ask:
 \begin{itemize}
 \item Given the timed automata and a set of programs supposed to
   implement them, how can we annotate the programs to be able to check
