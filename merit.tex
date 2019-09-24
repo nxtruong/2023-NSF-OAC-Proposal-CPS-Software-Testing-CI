@@ -11,7 +11,7 @@ The aim of this proposal is to (1) identify a set of principles for the analysis
 
 \begin{figure}[!t]
   \centering
-  \includegraphics[width=\textwidth]{overview}
+  \includegraphics[width=.8\textwidth]{overview}
   \caption{Overview of the proposed research.}
   \label{fig:overview}
 \end{figure}
@@ -28,7 +28,7 @@ networks and IoT systems).  Existing C code that is supposed to
 implement the design, and hence satisfy the design specifications, is provided and needs to be verified.
 Our goal is to certify whether the C code truly implements the complete TA-based design and, if not, find any bugs in the code.
 This is achieved in a sequence of steps:
-\begin{enumerate}
+\begin{enumerate}[labelsep=3pt,leftmargin=12pt]
 \item First, from the TA, \acsl annotations\footnote{\acsl is the
     specification language of \framac{}.} and possibly ghost C code
   (code that does not contribute to runtime semantics, but assists in
