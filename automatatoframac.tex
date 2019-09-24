@@ -1,19 +1,18 @@
 It is notoriously difficult to design correct and secure communication protocols.
-One of the most famous example is the Needham Schroeder Public Key protocol~\cite{NS1978:CACM}.
+One of the most famous examples is the Needham Schroeder Public Key protocol~\cite{NS1978:CACM}.
 It took 18 years to discover a flaw in this protocol~\cite{LOW1996:TACAS}, and it was done using formal methods.
 Networks of timed automata are formalisms suitable for the formalization of protocols.
 They are the basis of model checkers such as \uppaal~\cite{DLL2015:STTT} and \prism~\cite{KNP2011:CAV} that have been used successfully in the verification of network protocols~\cite{ZBW2013:ENTCS,HMJ2006:MASCOTS,HSS2010:NFM,KPK2015:VECOS}.
-These tools help in finding issues with an abstract formulation of a protocol, but they cannot help with implementation details that are not directly modeled in the formalism.
+These tools find issues with abstract formulations of protocols, but cannot help with implementation details that not modeled.
 
 But the {\em implementation} details of a correct protocol also matter as the Heartbleed vulnerability in the OpenSSL implementation shows.
 In the case of Heartbleed, the problem was a C runtime error: an access to an invalid memory region, and it was due to an implicit assumption on the input of a function that was actually false.
-Combination of static and dynamic analyses can detect such vulnerabilities~\cite{KKP2015:HVC} because they are not due to complex interactions related to the protocol.
+Combinations of static and dynamic analyses can detect such vulnerabilities~\cite{KKP2015:HVC} because they are not due to complex interactions related to the protocol.
 
 The methodology we envision combines the use of model-checkers such as \uppaal and \prism for the verification of protocols, with frameworks for static and dynamic analysis of C programs, namely \framac and \deepstate, for the verification of the {\em implementations} of protocols.
 
 We consider \framac, and its specification language \acsl pivotal in this approach.
-The research challenge here is to translate networks of timed automata into \acsl annotations and C ghost code for enabling the verification of the C code implementing the protocol modeled by the timed automata.
-This problem can further be broken down into the following key-subproblems:
+The research challenge here is to translate networks of timed automata into \acsl annotations and C ghost code for enabling the verification of the C code implementing the protocol modeled by the timed automata:
 
 \begin{enumerate}[labelsep=3pt,leftmargin=12pt]
 \item The translation of networks of automata into annotations to be used within the \framac code analyzer.
@@ -28,11 +27,11 @@ This problem can further be broken down into the following key-subproblems:
   
   This approach, however, is expressed in parts of the \acsl language that cannot be translated to executable C code, i.e. that do not belong to the \eacsl subset.
   In a broader verification context, especially as long as the whole system is not yet formally verified, it is very useful to rely on runtime verification, in particular to test client modules that use the list module.
-  Another work~\cite{LBK2018:TAP} showed a variant of the list module specification that belongs to the executable subset \eacsl of \acsl and can be transformed into executable C code.
+  A variant of the list module specification~\cite{LBK2018:TAP}  that belongs to the executable subset \eacsl of \acsl can also  be transformed into executable C code.
   A newer approach~\cite{BKL2019:SAC} relies on logic lists: they are part of the \acsl standard library of inductively defined logical data structures.
   In the case of Contiki, a logic list provides a convenient high-level view of the linked list.
-  The specifications of all functions are now proved faster and almost all automatically.
-  All these approaches are based on a predicate, or a combination of a predicate and a logic function, that relates the studied data structure (linked list), an a representation of this data structure for specification purposes.
+  The specifications of all functions is now proved faster and almost automatically.
+  All these approaches are based on a predicate, or a combination of a predicate and a logic function, that relates the data structure (linked list), and a representation of it for specification purposes.
   Figure~\ref{fig:representation} shows the array representation (right) and the logic list representation (left).
   In the former case, the logic list "ll" represents the linked list from root "bl" to cell "el".
   In the latter case, the companion array "cArr" ("n" cells from index "index") represents the linked list from "root" to cell "bound".
@@ -45,22 +44,20 @@ This problem can further be broken down into the following key-subproblems:
   \end{figure}
   
   We expect several translations of networks of automata to be considered.
-  Some may be easier to understand to C programmers not familiar with formal specifications (ghost code).
+  Some may be easier to understand for C programmers not familiar with formal specifications (ghost code).
   Some may be more efficient for deductive verification (logical data structures).
   Some may be more suited for dynamic verification while still being amenable to deductive verification.
-  The fist approach will rely on ghost code.
+  The first approach will rely on ghost code.
   The automata will be translated as C code.
   The states of the model may contain variables: a C structure will be used to represent states.
   Transitions could be modeled as function calls.
-  Such translations will be implemented as a \framac plugin, and will be automatic.
-
-  However events and states of the automata will need to be associated with respectively specific execution events and memory states of the C programs.
+  Such translations will be implemented as a \framac plugin, and will be automatic.  However events and states of the automata will need to be associated with respectively specific execution events and memory states of the C programs.
   We expect to experiment manually with this mapping in case studies before enhancing the plugin to provide support for it.
   In particular this means the developer will have to write representation predicates such as those of Figure~\ref{fig:representation} mapping states of the automata model to more concrete and detailed states of the C programs.
 
 
 \item Although deductive verification about {\em algorithmic complexity} is possible from source code~\cite{WK2009:TYPES,PS2014:SAC,GCP2018:ESOP},
-  such a formal way is not appropriate for this project, essentially because these approaches deal with complexity rather than execution time, and
+  such a formal approach is not appropriate for this project, essentially because these approaches deal with complexity rather than execution time, and
   there is no precise enough translation from one to the other.
 
   Time constraints on the transitions will be translated into new \acsl annotations.
