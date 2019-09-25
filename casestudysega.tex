@@ -2,27 +2,27 @@
 
 \paragraph{Overview:}
 
-The case study informing this research is the embedded software used in the Southwest Experimental Garden Array (SEGA)~\cite{ClaEtAl11,GhoEtAl2014,BelEtAl2015}.
+The first case study informing this research is the embedded software used in the Southwest Experimental Garden Array (SEGA)~\cite{ClaEtAl11,GhoEtAl2014,BelEtAl2015}.
 SEGA is a large collection of operational wireless sensor/actuator networks for monitoring and control of ecological systems, located at 17 sites in the states of Arizona and California.
 Currently, SEGA consists of 138 wireless nodes and is planned to expand to a total of 154 nodes at 21 sites in the coming years.
 As a genetics-based climate change research platform, SEGA allows scientists to quantify the ecological and evolutionary responses of species to changing climate conditions using emerging technologies.
-Multiple long-term and large-scale scientific experiments have been being conducted at SEGA.
+Multiple long-term and large-scale scientific experiments have been (and are being) conducted at SEGA sites.
 
 
 The SEGA nodes use a multi-processor architecture.
 A central processor provides services, including scheduling and dispatch of tasks, storage, and a message-passing interface for wireless networking.
 Plug-in satellite processors handle transducer sampling, actuation, and related computational tasks.
 In addition to allowing true parallelism, this architecture enables hardware-level improvements in energy efficiency, since each satellite can be optimized for its specific task.
-More practically, it admits the rapid implementation of highly heterogenous nodes that incorporate a wide range of sensing, actuation, and sensing+actuation capabilities.
+More practically, it admits the rapid implementation of highly heterogenous nodes that incorporate a wide range of sensing and actuation capabilities.
 % The current implementation of the architecture emphasizes energy efficiency~\cite{FliSENSORS2010,FliICC2011}.
 % For example, all satellite processors are power-gated via central processor control; ensuring that satellite processors are depowered prevents satellite sleep-mode energy leakage.
 % The power subsystem provides multiple power buses at different voltages, including an optically-isolated high-power bus for actuation.
 % A variety of energy supplies are also supported, including battery-backed photovoltaic sources~\cite{FliEtAl12,KnaFli17}.
 %
-The nodes synchronously interact with neighbors in a multi-hop, self-organizing/healing network; communication synchronization is implemented as scheduled rendezvous in time slots; slot boundaries are in turn managed by a lightweight global time synchronization protocol that is integrated with low-level communication synchronization.
-The nodes use a custom time-triggered RTOS that is tightly integrated with a time/frequency-hopped PHY/MAC protocol.
+The nodes synchronously interact with neighbors in a multi-hop, self-organizing/healing network; synchronization is implemented as scheduled rendezvous in time slots; slot boundaries are managed by a lightweight global time synchronization protocol that is integrated with low-level communication synchronization.
+The nodes use a custom time-triggered RTOS tightly integrated with a time/frequency-hopped PHY/MAC protocol.
 This approach %, implemented using a time-triggered architecture on a custom RTOS,
-minimizes communication energy cost, which dominates the overall energy consumption in these applications. 
+minimizes communication energy cost, which dominates the overall energy consumption.
 
 \paragraph{Problem:}
 
@@ -37,18 +37,18 @@ affect %damage
 or even destroy (e.g., via over-watering), long-running scientific experiments.
 
 
-Since access to SEGA installations can be difficult, and in the long run many may be located so remotely that it is cost-prohibitive to send humans to address problems, discovering the source of these in-operation faults, identifying other faults, and generally improving the reliability of the system are critical.
-We therefore aim to use SEGA (in particular the protocol in question and its implementation) as a case study for our methods.
-This will enable us to apply our approach in a practical setting, and increase the chances that what we produce is actually usable by engineers of real systems.
+Since access to SEGA installations can be difficult, and in the long run many may be located so remotely that it is cost-prohibitive to send humans to address problems, discovering the source of these in-operation faults, identifying other faults, and generally improving the reliability of the system is critical.
+We therefore aim to use SEGA (in particular the protocol in question and its implementation) as our primary case study.
+This will enable us to apply our approach in a practical setting, and ensure that what we produce is actually usable by engineers of real systems.
 %
-This system is ideal as a case study for several reasons.
-First, the abovementioned network problem enables exploring how to design, prove, and test time-critical systems in a way that does no harm: human life is not affected in this application, and data is not lost since all sensed information is logged locally at each node as a back-up.
-On the other hand, reliable operation is important, as noted above. %, because access to manually fix problems can be problematic even with current installations, and in the future this problem will only grow.
-Finally, this application uses common data structures for task control blocks and the operating system at each node schedules and dispatches both periodic and pseudo-randomly scheduled tasks.
+SEGA is an ideal case study for several reasons.
+First, the abovementioned network problem enables exploring how to design, prove, and test time-critical systems in a way that does no harm: human life is not affected in this application, and data is not lost since all sensed information is logged as a local back-up.
+On the other hand, reliable operation is important, and failure costly. %, because access to manually fix problems can be problematic even with current installations, and in the future this problem will only grow.
+Finally, this application uses common data structures for task control blocks, and the operating system at each node schedules and dispatches both periodic and pseudo-randomly scheduled tasks.
 Thus the system is representative of %a good example of the
-highly general applications of scheduling and synchronization used in myriad time-critical systems.
+general applications of scheduling and synchronization in time-critical systems.
 The embedded code is written in C, enabling the use of both \framac and DeepState.
-More broadly, it will inform how the developed theory and tools can improve the correctness, reliability, and safety of cyber-physical and IoT applications.
+SEGA will help us understand how our theory and tools can improve the correctness, reliability, and safety of cyber-physical and IoT applications.
 
 
 \paragraph{Plan:}

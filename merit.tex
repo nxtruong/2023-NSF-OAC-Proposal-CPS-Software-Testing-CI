@@ -28,11 +28,10 @@ networks and IoT systems).  Existing C code that is supposed to
 implement the design, and hence satisfy the design specifications, is provided and needs to be verified.
 Our goal is to certify whether the C code truly implements the complete TA-based design and, if not, find any bugs in the code:
 \begin{enumerate}[labelsep=3pt,leftmargin=12pt]
-\item First, from the TA, \acsl annotations\footnote{\acsl is the
-    specification language of \framac{}.} and possibly ghost C code
+\item First, from the TA, \acsl (the specification language of
+  \framac) annotations and possibly ghost C code
   (code that does not contribute to runtime semantics, but assists in
-  proof construction) are automatically generated to augment the
-  implementation code. The annotations together with ghost code
+  proof construction) are automatically generated. The annotations together with ghost code
   describe the semantics of the TA: if
   the annotated specification can be verified, then the TA design is implemented correctly.
 \item The implementation code with the \acsl annotations and ghost code
@@ -86,7 +85,7 @@ without unrealistic burden on engineers.
 
 \paragraph{Tools:} We will focus on C code, using \framac~\cite{KKP2015:FAC} and \deepstate~\cite{DeepState}
 for the analysis of code, and
-\uppaal~\footnote{\url{http://www.uppaal.org}} and
+\uppaal~\cite{uppaal} and
 \prism~\cite{KNP2011:CAV}) for the analysis of protocols.  The primary open research questions here are numerous, and include:
 % (1) how to handle C constructs that are not part of the toy language;
 (1) how to extend existing specification languages to support timing and uncertainty;
