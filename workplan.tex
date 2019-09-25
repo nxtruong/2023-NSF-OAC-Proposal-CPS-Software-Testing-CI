@@ -1,111 +1,3 @@
-The project will be organized into three phases, described by work packages:
-
-\paragraph{Work Package 1 (WP1):} This work package will develop the
-principles and extensions to \framac for automatic translation of
-networks of timed automata into \acsl and ghost code (see Section~\ref{sec:ta2framac}):
-WP1 consists of the following major tasks:
-
-
-$\bullet$ T1.1: This task will study the formal semantics of timed automaton networks defined in \uppaal and \prism, and define an appropriate set of the timed automaton semantics considered in this project.  The semantics would be rich enough for modeling the application systems considered in the project, specifically in WP3, while simple enough for the translation into annotations usable by static analysis tools (\framac) and dynamic analysis tools (\deepstate).  As such, there will be close collaboration and iterative design steps between this task and the other work packages. %WP3 (Application).
-
-$\bullet$ T1.2: This task will develop several methods for automatic translation of timed automaton networks into \acsl annotations and/or ghost code.  Depending on the target usage, whether for statis analysis or dynamic analysis or being inspected by programmers, a suitable method will be developed.
-
-$\bullet$ T1.3: We will implement the methods developed in T1.2 as \framac plugins.
-The developed tools will be tested on the case studies (WP3), whose results will inform the tool development process.
-
-One Ph.D. student will be needed to conduct the work in this work package, which will last for the entire duration of the project.
-The student will collaborate closely with students in WP2 and WP3, and
-will partially participate in the application in WP3.
-
-\paragraph{Evaluation:} Evaluation of
-WP1 will be determined by the set of timed automata
-networks that can be translated into \acsl and ghost code, and the
-ability to use that code to prove properties.  We will use benchmark
-examples (realistic code found on GitHub or in embedded systems
-textbooks) to some extent, and simple test cases for constructs, but
-primarily rely on our case studies for evaluation.
-
-
-\paragraph{Work Package 2 (WP2):}  This work package will develop
-methods and tools to automatically translate \acsl-annotated code in
-\framac into a \deepstate test harness (Section~\ref{sec:framac2deepstate}):
-\begin{itemize}[labelsep=3pt,leftmargin=12pt]
-\item T2.1: This task will extend the \eacsl semantics and optimize the implementation of symbolic execution and fuzzing, so that \acsl annotations generated from timed automaton networks (in WP1) can be used in DeepState to test implementation code.
-\item T2.2: This task will develop methods to translate annotations and ghost code generated for static analysis in WP1 to test specifications in \deepstate.  It will be carried out concurrently with tasks T1.1 and T1.2 in WP1, and will inform the design and method development in those tasks.
-\item T2.3: In this task, we will implement the methods developed in
-  T2.1 as extensions to \deepstate.  The tools will be applied to the
-  case study in WP3, whose results will inform the development of the
-  tools.
-\item T2.4: In this task, we will augment \deepstate and fuzzers in the multiple ways described in Section~\ref{sec:framac2deepstate}.  
-\end{itemize}
-
-The execution of this work package will span the entire duration of the project.
-One Ph.D. student will work on the tasks in WP2, and collaborate with
-the students in WP1 and WP3.
-
-\paragraph{Evaluation:} Evaluation of
-Work Package 2 will be determined by the successful generation of
-DeepState harnesses for \acsl annotated code, and the successful
-application of those harnesses to generate tests for realistic
-systems.  We will again use benchmarks and simple examples to some
-extent, but primarily rely on our connection to case studies.
-In the case of test generation, in addition to faults
-detected, we will use code coverage and other standard benchmarks~\cite{FuzzerHicks}.
-
-
-\paragraph{Work Package 3 (WP3):}  This work package will focus on the applications described in Sections~\ref{sec:case-study} and \ref{sec:case-study-robots}, as both a way to inform the methodology and tool developments in the other work packages and case studies in two completely different domains to validate our methods and tools.
-WP3 includes two case studies:
-\paragraph{SEGA case study (Section~\ref{sec:case-study}):} This application is divided into two tasks:
-\noindent  \begin{itemize}[labelsep=3pt,leftmargin=12pt]
-  \item T3.1: In this task, the existing SEGA system will be
-    studied thoroughly to extract the key requirments and
-    characteristics of the embedded system implementation.  Timed
-    automaton models of the communication protocol used in the system,
-    at different levels of abstraction, will be developed and formally
-    verified in \uppaal and/or \prism. The system information and models
-    resulted from this task will inform the semantics design and method
-    developments in WP1 and WP2. As time allows, and pending results
-    with communication protocol, we will extend this to include sensing
-    and control elements.
-  \item T3.2: This task will apply the tools developed in WP1 and WP2
-    to the SEGA system, in order to detect and fix bugs in the current
-    implementation that cause the intermittent failures mentioned in
-    Section~\ref{sec:case-study}.  It will also provide feedback to
-    the other work packages to refine and improve our tools.
-  \end{itemize}
-
-\paragraph {Robotics case study (Section~\ref{sec:case-study-robots}):} this study, in the last year of the project, is divided into two tasks:
-\noindent \begin{itemize}[labelsep=3pt,leftmargin=12pt]
-  \item T4.1: In this task, a multi-robot coordination algorithm
-    currently used with our existing multi-robot system will be
-    modeled as a network of timed automata.  Using our insights into
-    the robotics application, we will express its performance
-    specifications, particularly its safety requirements, in temporal
-    logics and formally verify or test them in tools like \uppaal,
-    \prism, or S-TaLiRo.  This task will extend the semantics and
-    methods developed to applications beyond communication protocols.
-  \item T4.2: This task will apply the tools developed in WP1 and WP2 to the coordinated multi-robot system, in order to validate the implementation code and detect and fix its bugs.  It will also provide feedback to the other work packages to refine and improve the tools developed in this project.
-  \end{itemize}
-
-As the tasks in this work package are conducted in tandem with WP1 and WP2, to form a feedback loop with the developments in other work packages, it will last for the entire duration of the project.
-We expect that groups of undergraduate students and two
-Ph.D. students, who will join the project in the second and third
-years, in collaboration with the Ph.D. students in WP1 and WP2, will
-perform the work.
-
-\paragraph{Evaluation:} In essence, this task \emph{is} the evaluation
-aspect of our project, which forms one of the major thrusts of
-the project.  The successful application of WP1 and WP2 tools to the case studies is
-essentially the driving factor in determining our success in the
-project, and the key feedback to drive changes to our research
-priorities or technical choices.  The measure of ``successful
-application'' is (1) faults detected and corrected (2) functionality
-proven correct in \framac and (3) coverage and other standard measures
-of generated tests.
-
-%\subsubsection{Timeline}
-\label{sec:time-line}
-
 \begin{wrapfigure}{r}{.35\textwidth}
 %\begin{figure}[!tp]
 %  \centering
@@ -228,8 +120,116 @@ of generated tests.
 %\vspace{-0.4in}
 \end{wrapfigure}
 
-\paragraph{Timeline:} In the first phase, T3.1 will be conducted along with T1.1 and T2.1, and will inform the development in these tasks.
+The project will be organized into three phases, described by work
+packages.  In the first phase, T3.1 will be conducted along with T1.1 and T2.1, and will inform the development in these tasks.
 In the second phase, the focus will be on the development of translation methods in T1.2 and T2.2.
 In the last phase, software tools will be developed (tasks T1.3 and T2.3) and applied to the case studies (tasks T3.2, T4.1, and T4.2), whose results and feedback will help refine the developed tools.
 It is important that the tasks of the work packages are carried out in tandem and in close collaboration.
 The timeline of the tasks will be structured as shown in Figure~\ref{fig:project-schedule}.
+
+\paragraph{Work Package 1 (WP1):} This work package concerns the
+principles and extensions to \framac for automatic translation of
+networks of timed automata into \acsl and ghost code (see Section~\ref{sec:ta2framac}):
+WP1 consists of the following tasks:
+
+
+$\bullet$ T1.1: This task will study the formal semantics of timed automaton networks defined in \uppaal and \prism, and define an appropriate set of the timed automaton semantics considered in this project.  The semantics would be rich enough for modeling the application systems considered in the project, specifically in WP3, while simple enough for the translation into annotations usable by static analysis tools (\framac) and dynamic analysis tools (\deepstate).  As such, there will be close collaboration and iterative design steps between this task and the other work packages. %WP3 (Application).
+
+$\bullet$ T1.2: This task will develop several methods for automatic translation of timed automaton networks into \acsl annotations and/or ghost code.  Depending on the target usage, whether for statis analysis or dynamic analysis or being inspected by programmers, a suitable method will be developed.
+
+$\bullet$ T1.3: We will implement the methods developed in T1.2 as \framac plugins.
+The developed tools will be tested on the case studies (WP3), whose results will inform the tool development process.
+
+One Ph.D. student will be needed to conduct the work in this work package, which will last for the entire duration of the project.
+The student will collaborate closely with students in WP2 and WP3.
+
+\paragraph{Evaluation:} Evaluation of
+WP1 will be determined by the set of timed automata
+networks that can be translated into \acsl and ghost code, and the
+ability to use that code to prove properties.  We will use benchmark
+examples (realistic code found on GitHub or in embedded systems
+textbooks) to some extent, and simple test cases for constructs, but
+primarily rely on our case studies for evaluation.
+
+
+\paragraph{Work Package 2 (WP2):}  This work package covers
+methods and tools to automatically translate \acsl-annotated code in
+\framac into a \deepstate test harness (Section~\ref{sec:framac2deepstate}):
+\begin{itemize}[labelsep=3pt,leftmargin=12pt]
+\item T2.1: This task will extend the \eacsl semantics and optimize the implementation of symbolic execution and fuzzing, so that \acsl annotations generated from timed automaton networks (in WP1) can be used in DeepState to test implementation code.
+\item T2.2: This task will develop methods to translate annotations and ghost code generated for static analysis in WP1 to test specifications in \deepstate.  It will be carried out concurrently with tasks T1.1 and T1.2 in WP1, and will inform the design and method development in those tasks.
+\item T2.3: In this task, we will implement the methods developed in
+  T2.1 as extensions to \deepstate.  The tools will be applied to the
+  case study in WP3, whose results will inform the development of the
+  tools.
+\item T2.4: In this task, we will augment \deepstate and fuzzers in the multiple ways described in Section~\ref{sec:framac2deepstate}.  
+\end{itemize}
+
+The execution of this work package will span the entire duration of the project.
+One Ph.D. student will work on the tasks in WP2, and collaborate with
+the students in WP1 and WP3.
+
+\paragraph{Evaluation:} Evaluation of
+Work Package 2 will be determined by the successful generation of
+DeepState harnesses for \acsl annotated code, and the successful
+application of those harnesses to generate tests for realistic
+systems.  We will again use benchmarks and simple examples to some
+extent, but primarily rely on our connection to case studies.
+In the case of test generation, in addition to faults
+detected, we will use code coverage and other standard benchmarks~\cite{FuzzerHicks}.
+
+
+\paragraph{Work Package 3 (WP3):}  This work package will focus on the applications described in Sections~\ref{sec:case-study} and \ref{sec:case-study-robots}, as both a way to inform the methodology and tool developments in the other work packages and case studies in two completely different domains to validate our methods and tools.
+WP3 includes two case studies:
+\paragraph{SEGA case study (Section~\ref{sec:case-study}):} This application is divided into two tasks:
+\noindent  \begin{itemize}[labelsep=3pt,leftmargin=12pt]
+  \item T3.1: In this task, the existing SEGA system will be
+    studied thoroughly to extract the key requirments and
+    characteristics of the embedded system implementation.  Timed
+    automaton models of the communication protocol used in the system,
+    at different levels of abstraction, will be developed and formally
+    verified in \uppaal and/or \prism. The system information and models
+    resulted from this task will inform the semantics design and method
+    developments in WP1 and WP2. As time allows, and pending results
+    with communication protocol, we will extend this to include sensing
+    and control elements.
+  \item T3.2: This task will apply the tools developed in WP1 and WP2
+    to the SEGA system, in order to detect and fix bugs in the current
+    implementation that cause the intermittent failures mentioned in
+    Section~\ref{sec:case-study}.  It will also provide feedback to
+    the other work packages to refine and improve our tools.
+  \end{itemize}
+
+\paragraph {Robotics case study (Section~\ref{sec:case-study-robots}):} this study, in the last year of the project, is divided into two tasks:
+\noindent \begin{itemize}[labelsep=3pt,leftmargin=12pt]
+  \item T4.1: In this task, a multi-robot coordination algorithm
+    currently used with our existing multi-robot system will be
+    modeled as a network of timed automata.  Using our insights into
+    the robotics application, we will express its performance
+    specifications, particularly its safety requirements, in temporal
+    logics and formally verify or test them in tools like \uppaal,
+    \prism, or S-TaLiRo.  This task will extend the semantics and
+    methods developed to applications beyond communication protocols.
+  \item T4.2: This task will apply the tools developed in WP1 and WP2 to the coordinated multi-robot system, in order to validate the implementation code and detect and fix its bugs.  It will also provide feedback to the other work packages to refine and improve the tools developed in this project.
+  \end{itemize}
+
+As the tasks in this work package are conducted in tandem with WP1 and WP2, to form a feedback loop with the developments in other work packages, it will last for the entire duration of the project.
+We expect that groups of undergraduate students and two
+Ph.D. students, who will join the project in the second and third
+years, in collaboration with the Ph.D. students in WP1 and WP2, will
+perform the work.
+
+\paragraph{Evaluation:} In essence, this task \emph{is} the evaluation
+aspect of our project, which forms one of the major thrusts of
+the project.  The successful application of WP1 and WP2 tools to the case studies is
+essentially the driving factor in determining our success in the
+project.
+%, and the key feedback to drive changes to our research
+%priorities or technical choices.
+The measure of success is (1) faults detected and corrected (2) functionality
+proven correct in \framac and (3) coverage and other measures
+of generated tests.
+
+%\subsubsection{Timeline}
+%\label{sec:time-line}
+
