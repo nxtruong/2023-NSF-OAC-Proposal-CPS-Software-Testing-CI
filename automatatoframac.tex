@@ -32,9 +32,9 @@ The research challenge here is to translate networks of timed automata into \acs
   In the case of Contiki, a logic list provides a convenient high-level view of the linked list.
   The specifications of all functions is now proved faster and almost automatically.
   All these approaches are based on a predicate, or a combination of a predicate and a logic function, that relates the data structure (linked list), and a representation of it for specification purposes.
-  Figure~\ref{fig:representation} shows the array representation (right) and the logic list representation (left).
-  In the former case, the logic list "ll" represents the linked list from root "bl" to cell "el".
-  In the latter case, the companion array "cArr" ("n" cells from index "index") represents the linked list from "root" to cell "bound".
+  Figure~\ref{fig:representation} shows the logic list representation (left) and array representation (right).
+  In the former case, the logic list {\tt ll} represents the linked list from root {\tt bl} to cell {\tt el}.
+  In the latter case, the companion array {\tt cArr} ({\tt n} cells from index {\tt index}) represents the linked list from {\tt root} to cell {\tt bound}.
 
 
   \begin{figure}
@@ -73,7 +73,7 @@ The research challenge here is to translate networks of timed automata into \acs
 
 \item The main part of the code where the specification of the automata will be used should be a kind of event loop.
   However this loop may be incomplete in the sense that it may not consider all the possible events, or even may not be structured as an event loop in the case   most events are handled through interrupts.
-  Although \framac does not directly handle concurrency, its \conctoseq~\cite{BKL2016:SCAM} plugin allows for the analysis of parallel compositions of C programs through program transformation to sequential C programs~\cite{BLK2017:VPT}.
+  Although \framac does not directly handle concurrency, its \conctoseq~\cite{BKL2016:SCAM} plugin (co-authored by co-PI Loulergue) allows for the analysis of parallel compositions of C programs through program transformation to sequential C programs~\cite{BLK2017:VPT}.
   The main part of the simulating program is a loop that handles control switch among the various threads.
   This loop can be used as the main event loop in a concurrency context.
   

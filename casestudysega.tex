@@ -13,11 +13,11 @@ The SEGA nodes use a multi-processor architecture.
 A central processor provides services, including scheduling and dispatch of tasks, storage, and a message-passing interface for wireless networking.
 Plug-in satellite processors handle transducer sampling, actuation, and related computational tasks.
 In addition to allowing true parallelism, this architecture enables hardware-level improvements in energy efficiency, since each satellite can be optimized for its specific task.
-More practically, it admits the rapid implementation of highly heterogenous nodes that incorporate a wide range of sensing and actuation capabilities.
+More practically, it admits the rapid implementation of highly heterogeneous nodes that incorporate a wide range of sensing and actuation capabilities.
 % The current implementation of the architecture emphasizes energy efficiency~\cite{FliSENSORS2010,FliICC2011}.
 % For example, all satellite processors are power-gated via central processor control; ensuring that satellite processors are depowered prevents satellite sleep-mode energy leakage.
 % The power subsystem provides multiple power buses at different voltages, including an optically-isolated high-power bus for actuation.
-% A variety of energy supplies are also supported, including battery-backed photovoltaic sources~\cite{FliEtAl12,KnaFli17}.
+% A variety of energy supplies are also supported, including battery-backed photo-voltaic sources~\cite{FliEtAl12,KnaFli17}.
 %
 The nodes synchronously interact with neighbors in a multi-hop, self-organizing/healing network; synchronization is implemented as scheduled rendezvous in time slots; slot boundaries are managed by a lightweight global time synchronization protocol that is integrated with low-level communication synchronization.
 The nodes use a custom time-triggered RTOS tightly integrated with a time/frequency-hopped PHY/MAC protocol.
@@ -42,7 +42,7 @@ We therefore aim to use SEGA (in particular the protocol in question and its imp
 This will enable us to apply our approach in a practical setting, and ensure that what we produce is actually usable by engineers of real systems.
 %
 SEGA is an ideal case study for several reasons.
-First, the abovementioned network problem enables exploring how to design, prove, and test time-critical systems in a way that does no harm: human life is not affected in this application, and data is not lost since all sensed information is logged as a local back-up.
+First, the above mentioned network problem enables exploring how to design, prove, and test time-critical systems in a way that does no harm: human life is not affected in this application, and data is not lost since all sensed information is logged as a local back-up.
 On the other hand, reliable operation is important, and failure costly. %, because access to manually fix problems can be problematic even with current installations, and in the future this problem will only grow.
 Finally, this application uses common data structures for task control blocks, and the operating system at each node schedules and dispatches both periodic and pseudo-randomly scheduled tasks.
 Thus the system is representative of %a good example of the
