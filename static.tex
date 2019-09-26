@@ -10,9 +10,9 @@ This project will use \framac{} (\url{https://frama-c.com})~\cite{KKP2015:FAC}.
 It is a widely-used source code analysis platform that aims at conducting verification of industrial-size programs written in ISO C99 source code.
 \framac{} fully supports combinations of different approaches, by providing its users with a collection of \emph{plugins} for static and dynamic analyses of safety- and security-critical software.
 Moreover, collaborative verification across cooperating plugins is enabled by their integration on top of a shared kernel, and their compliance to a common specification language: \acsl~\cite{ACSL}.
-\acsl, for ANSI/ISO C Specification Language, is based on the notion of contract like in JML.
-It allows users to specify functional properties of programs through pre/post-condition, and provides different ways to define predicates and logic functions.
-Some useful built-in predicates and logic functions are provided, to handle for example pointer validity or separation.
+\acsl, for ANSI/ISO C Specification Language, is based on the notion of contract as in JML.
+\acsl allows users to specify functional properties of programs through pre/post-condition, and provides different ways to define predicates and logic functions.
+Many built-in predicates and logic functions are provided, to handle, for example, pointer validity or separation.
 \framac is very appropriate for the verification of typical legacy embedded C code.
 Its specification language is rich but easy to understand: ACSL is essentially a typed first-order logic that contains C expressions.
 
@@ -36,14 +36,14 @@ Thus, the last step is generally to state lemmas that can be directly instantiat
 This last step hinders the adoption of \framac as it requires the users to also master the \Coq proof assistant or another interactive theorem prover.
 Our recent work showed how to avoid using an interactive theorem prover for this last step~\cite{BLK2019:NFM}.
 Function contracts in ACSL and loop annotations (verified using SMT solvers) are used instead of ACSL lemmas and \Coq proof scripts.
-This strengthen the goal of this project: to avoid developers to learn programming paradigms or languages.
+This is in line with the goal of this project: to provide automated tools usable by real-world developers.
 
 \framac was initially designed as a static analysis platform, but it was later extended with plugins for dynamic analysis.
 One of these plugins is \eacsl, a runtime verification tool.
 \eacsl supports runtime assertion checking~\cite{CR2006:SEN}.
-Assertions are very convenient for detecting errors and providing information about their locations.
-It is the case even when such an error does not result in a failure during execution.
+Assertions are very convenient for detecting errors and providing information about how a failure occurred.
+%It is the case even when such an error does not result in a failure during execution.
 In \framac, \eacsl is both the name of the assertion language and the name of a plugin that generates C code to check these assertions at runtime.
 \eacsl is a subset of \acsl: the specifications written in this subset can therefore be used both by \Wp and \eacsl.
-\Wp tries to prove the correctness of these assertions {\em statically} using automated provers, while the plugin \eacsl is used to translate these assertions into C code that can then be executed.
+\Wp tries to prove the correctness of these assertions {\em statically} using automated provers, while the plugin \eacsl is used to translate these assertions into executable C code.
 In this case the assertions are checked {\em dynamically}.
