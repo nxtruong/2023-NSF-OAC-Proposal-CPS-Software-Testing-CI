@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
-<ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20180922210335" modified="D:20180925115638"/>
+<ipe version="70218" creator="Ipe 7.2.23">
+<info created="D:20180922210335" modified="D:20210122104215"/>
 <preamble>\usepackage{pifont}</preamble>
 <ipestyle name="tikz">
-<textstyle name="tikz" type="label" begin="\begin{tikzpicture}" end="\end{tikzpicture}"/>
-<textstyle name="purple-box" type="label" begin="\begin{tikzpicture}\node at (0,0) [rectangle, draw=purple!50,fill=purple!25] {" end="};\end{tikzpicture}"/>
-<textstyle name="green-disk" type="label" begin="\begin{tikzpicture}\node at (0,0) [circle, draw=green!75!black,fill=green!50] {" end="};\end{tikzpicture}"/>
 <textstyle name="ball" type="label" begin="\begin{tikzpicture}\node at (0,0) [circle,ball color=blue!50, text=white] {" end="};\end{tikzpicture}"/>
-<textstyle name="red-ball" type="label" begin="\begin{tikzpicture}\node at (0,0) [circle,ball color=red!50!black, text=white] {" end="};\end{tikzpicture}"/>
 <textstyle name="blue-white-round" type="label" begin="\begin{tikzpicture}\node at (0,0) [rounded rectangle, draw=black!50, top color=white, bottom color=blue!50] {" end="};\end{tikzpicture}"/>
+<textstyle name="green-disk" type="label" begin="\begin{tikzpicture}\node at (0,0) [circle, draw=green!75!black,fill=green!50] {" end="};\end{tikzpicture}"/>
+<textstyle name="purple-box" type="label" begin="\begin{tikzpicture}\node at (0,0) [rectangle, draw=purple!50,fill=purple!25] {" end="};\end{tikzpicture}"/>
+<textstyle name="red-ball" type="label" begin="\begin{tikzpicture}\node at (0,0) [circle,ball color=red!50!black, text=white] {" end="};\end{tikzpicture}"/>
+<textstyle name="tikz" type="label" begin="\begin{tikzpicture}" end="\end{tikzpicture}"/>
 <preamble>
 \usepackage{tikz}
 \usetikzlibrary{shapes.misc}
@@ -193,29 +193,16 @@ h
 h
 </path>
 </symbol>
-<pen name="heavier" value="0.8"/>
-<pen name="fat" value="1.2"/>
-<pen name="ultrafat" value="2"/>
-<symbolsize name="large" value="5"/>
-<symbolsize name="small" value="2"/>
-<symbolsize name="tiny" value="1.1"/>
+<anglesize name="22.5 deg" value="22.5"/>
+<anglesize name="30 deg" value="30"/>
+<anglesize name="45 deg" value="45"/>
+<anglesize name="60 deg" value="60"/>
+<anglesize name="90 deg" value="90"/>
 <arrowsize name="large" value="10"/>
 <arrowsize name="small" value="5"/>
 <arrowsize name="tiny" value="3"/>
-<color name="red" value="1 0 0"/>
-<color name="green" value="0 1 0"/>
 <color name="blue" value="0 0 1"/>
-<color name="yellow" value="1 1 0"/>
-<color name="orange" value="1 0.647 0"/>
-<color name="gold" value="1 0.843 0"/>
-<color name="purple" value="0.627 0.125 0.941"/>
-<color name="gray" value="0.745"/>
 <color name="brown" value="0.647 0.165 0.165"/>
-<color name="navy" value="0 0 0.502"/>
-<color name="pink" value="1 0.753 0.796"/>
-<color name="seagreen" value="0.18 0.545 0.341"/>
-<color name="turquoise" value="0.251 0.878 0.816"/>
-<color name="violet" value="0.933 0.51 0.933"/>
 <color name="darkblue" value="0 0 0.545"/>
 <color name="darkcyan" value="0 0.545 0.545"/>
 <color name="darkgray" value="0.663"/>
@@ -223,51 +210,64 @@ h
 <color name="darkmagenta" value="0.545 0 0.545"/>
 <color name="darkorange" value="1 0.549 0"/>
 <color name="darkred" value="0.545 0 0"/>
+<color name="gold" value="1 0.843 0"/>
+<color name="gray" value="0.745"/>
+<color name="green" value="0 1 0"/>
 <color name="lightblue" value="0.678 0.847 0.902"/>
 <color name="lightcyan" value="0.878 1 1"/>
 <color name="lightgray" value="0.827"/>
 <color name="lightgreen" value="0.565 0.933 0.565"/>
 <color name="lightyellow" value="1 1 0.878"/>
+<color name="navy" value="0 0 0.502"/>
+<color name="orange" value="1 0.647 0"/>
+<color name="pink" value="1 0.753 0.796"/>
+<color name="purple" value="0.627 0.125 0.941"/>
+<color name="red" value="1 0 0"/>
+<color name="seagreen" value="0.18 0.545 0.341"/>
+<color name="turquoise" value="0.251 0.878 0.816"/>
+<color name="violet" value="0.933 0.51 0.933"/>
+<color name="yellow" value="1 1 0"/>
+<dashstyle name="dash dot dotted" value="[4 2 1 2 1 2] 0"/>
+<dashstyle name="dash dotted" value="[4 2 1 2] 0"/>
 <dashstyle name="dashed" value="[4] 0"/>
 <dashstyle name="dotted" value="[1 3] 0"/>
-<dashstyle name="dash dotted" value="[4 2 1 2] 0"/>
-<dashstyle name="dash dot dotted" value="[4 2 1 2 1 2] 0"/>
-<textsize name="large" value="\large"/>
-<textsize name="Large" value="\Large"/>
-<textsize name="LARGE" value="\LARGE"/>
-<textsize name="huge" value="\huge"/>
-<textsize name="Huge" value="\Huge"/>
-<textsize name="small" value="\small"/>
-<textsize name="footnote" value="\footnotesize"/>
-<textsize name="tiny" value="\tiny"/>
-<textstyle name="center" begin="\begin{center}" end="\end{center}"/>
-<textstyle name="itemize" begin="\begin{itemize}" end="\end{itemize}"/>
-<textstyle name="item" begin="\begin{itemize}\item{}" end="\end{itemize}"/>
-<gridsize name="4 pts" value="4"/>
-<gridsize name="8 pts (~3 mm)" value="8"/>
-<gridsize name="16 pts (~6 mm)" value="16"/>
-<gridsize name="32 pts (~12 mm)" value="32"/>
 <gridsize name="10 pts (~3.5 mm)" value="10"/>
-<gridsize name="20 pts (~7 mm)" value="20"/>
 <gridsize name="14 pts (~5 mm)" value="14"/>
+<gridsize name="16 pts (~6 mm)" value="16"/>
+<gridsize name="20 pts (~7 mm)" value="20"/>
 <gridsize name="28 pts (~10 mm)" value="28"/>
+<gridsize name="32 pts (~12 mm)" value="32"/>
+<gridsize name="4 pts" value="4"/>
 <gridsize name="56 pts (~20 mm)" value="56"/>
-<anglesize name="90 deg" value="90"/>
-<anglesize name="60 deg" value="60"/>
-<anglesize name="45 deg" value="45"/>
-<anglesize name="30 deg" value="30"/>
-<anglesize name="22.5 deg" value="22.5"/>
+<gridsize name="8 pts (~3 mm)" value="8"/>
 <opacity name="10%" value="0.1"/>
 <opacity name="30%" value="0.3"/>
 <opacity name="50%" value="0.5"/>
 <opacity name="75%" value="0.75"/>
+<pen name="fat" value="1.2"/>
+<pen name="heavier" value="0.8"/>
+<pen name="ultrafat" value="2"/>
+<symbolsize name="large" value="5"/>
+<symbolsize name="small" value="2"/>
+<symbolsize name="tiny" value="1.1"/>
+<textsize name="Huge" value="\Huge"/>
+<textsize name="LARGE" value="\LARGE"/>
+<textsize name="Large" value="\Large"/>
+<textsize name="footnote" value="\footnotesize"/>
+<textsize name="huge" value="\huge"/>
+<textsize name="large" value="\large"/>
+<textsize name="small" value="\small"/>
+<textsize name="tiny" value="\tiny"/>
+<textstyle name="center" begin="\begin{center}" end="\end{center}"/>
+<textstyle name="item" begin="\begin{itemize}\item{}" end="\end{itemize}"/>
+<textstyle name="itemize" begin="\begin{itemize}" end="\end{itemize}"/>
 <tiling name="falling" angle="-60" step="4" width="1"/>
 <tiling name="rising" angle="30" step="4" width="1"/>
 </ipestyle>
 <page>
 <layer name="alpha"/>
 <view layers="alpha" active="alpha"/>
-<path layer="alpha" matrix="0.666667 0 0 1 252 16" stroke="blue">
+<path layer="alpha" matrix="0.666667 0 0 1 252 16" stroke="blue" pen="ultrafat">
 192 664 m
 192 632 l
 288 632 l
@@ -276,7 +276,7 @@ h
 </path>
 <text matrix="1 0 0 1 188 8" transformations="translations" pos="192 656" stroke="blue" type="minipage" width="64" height="9.941" depth="4.97" valign="center" size="footnote" style="center">\itshape ACSL\\
 annotations</text>
-<path matrix="0.666667 0 0 1 324 16" stroke="blue">
+<path matrix="0.666667 0 0 1 324 16" stroke="blue" pen="ultrafat">
 192 664 m
 192 632 l
 288 632 l
@@ -285,20 +285,20 @@ h
 </path>
 <text matrix="0.952381 0 0 1 269.143 8" transformations="translations" pos="192 656" stroke="blue" type="minipage" width="64" height="9.989" depth="5.01" valign="center" size="footnote" style="center">\itshape Ghost\\
 C code</text>
-<path matrix="1 0 0 1 176 16" stroke="blue" pen="fat">
+<path matrix="1 0 0 1 176 16" stroke="blue" pen="fat" rarrow="normal/normal">
 272 552 m
 272 588 l
 </path>
-<path stroke="blue" pen="fat" arrow="normal/small">
+<path stroke="blue" pen="fat" arrow="normal/tiny">
 448 604 m
 412 644 l
 </path>
-<path stroke="blue" pen="fat" arrow="normal/small">
+<path stroke="blue" pen="fat" arrow="normal/tiny">
 448 604 m
 484 644 l
 </path>
-<text matrix="0.0644313 0 0 0.0264167 449.444 568.573" transformations="translations" pos="288 580" stroke="blue" type="minipage" width="73.204" height="15.171" depth="10.21" valign="baseline" size="footnote">\raggedright \itshape
-generate\\
+<text matrix="0.0644313 0 0 0.0264167 449.444 568.573" transformations="translations" pos="288 580" stroke="blue" type="minipage" width="73.204" height="15.494" depth="10.52" valign="baseline" size="footnote">\raggedright \itshape
+generate model OR\\
 ACSL annotation\\
 and ghost code\\</text>
 <path matrix="1 0 0 1 96 16" stroke="blue" pen="fat">
@@ -334,7 +334,7 @@ found</text>
 Verified\\
 Timed
 Automaton Network</text>
-<path matrix="2.10972 0 0 0.514286 -25.0671 342.4" stroke="black">
+<path matrix="2.10972 0 0 0.514286 -25.0671 342.4" stroke="black" pen="fat">
 192 736 m
 192 672 l
 256 672 l
@@ -343,7 +343,7 @@ h
 </path>
 <text matrix="1 0 0 1 192 -16" transformations="translations" pos="208 720" stroke="black" type="minipage" width="98.796" height="9.989" depth="5.01" valign="center" size="footnote" style="center">Implementation\\
 C code</text>
-<text matrix="1 0 0 1 -36 12" transformations="translations" pos="172 676" stroke="black" type="minipage" width="64.114" height="6.035" depth="1.05" halign="center" valign="center" size="footnote" style="center">Static Analysis</text>
+<text matrix="1 0 0 1 -4 12" transformations="translations" pos="172 676" stroke="black" type="minipage" width="64.114" height="6.035" depth="1.05" halign="center" valign="center" size="footnote" style="center">Static Analysis</text>
 <path matrix="0.714286 0 0 0.653086 48 250.025" stroke="black">
 224 688 m
 224 640 l
@@ -390,16 +390,16 @@ h
 <text matrix="1 0 0 1 -32 168" transformations="translations" pos="256 528" stroke="blue" type="label" width="11.58" height="11.18" depth="0" valign="baseline" size="footnote" style="blue-white-round">2</text>
 <text matrix="0.0644313 0 0 0.0264167 221.444 692.573" transformations="translations" pos="288 580" stroke="blue" type="minipage" width="57.204" height="10.759" depth="5.79" valign="top" size="footnote">\raggedright \itshape
 verify\\impl. code</text>
-<text matrix="1 0 0 1 -36 0" transformations="translations" pos="172 676" stroke="darkgreen" type="minipage" width="64.114" height="6.48" depth="1.49" halign="center" valign="center" size="footnote" style="center">(\textsc{Frama-C})</text>
-<text matrix="1 0 0 1 76 -184" transformations="translations" pos="172 676" stroke="black" type="minipage" width="72.114" height="6.035" depth="1.05" halign="center" valign="center" size="footnote" style="center">Dynamic Analysis</text>
-<path matrix="0.714286 0 0 0.653086 164 54.0247" stroke="black">
+<text matrix="1 0 0 1 -4 0" transformations="translations" pos="172 676" stroke="darkgreen" type="minipage" width="64.114" height="6.48" depth="1.49" halign="center" valign="center" size="footnote" style="center">(\textsc{Frama-C})</text>
+<text matrix="1 0 0 1 108 -184" transformations="translations" pos="172 676" stroke="black" type="minipage" width="72.114" height="6.48" depth="1.49" halign="center" valign="center" size="footnote" style="center">Dynamic Analysis/</text>
+<path matrix="0.810358 0 0 1.42283 145.589 -477.013" stroke="black" pen="ultrafat">
 224 688 m
 224 640 l
 112 640 l
 112 688 l
 h
 </path>
-<text matrix="1 0 0 1 80 -196" transformations="translations" pos="172 676" stroke="darkgreen" type="minipage" width="64.114" height="6.48" depth="1.49" halign="center" valign="center" size="footnote" style="center">(DeepState)</text>
+<text matrix="1 0 0 1 112.273 -208.924" transformations="translations" pos="172 676" stroke="darkgreen" type="minipage" width="64.114" height="6.48" depth="1.49" halign="center" valign="center" size="footnote" style="center">(DeepState)</text>
 <path stroke="blue" pen="fat" arrow="normal/small">
 284 684 m
 284 572 l
@@ -409,7 +409,7 @@ h
 <text matrix="1.5 0 0 3.5 -54 -1034" transformations="translations" pos="180 476" stroke="blue" type="label" width="13.965" height="12.768" depth="0" halign="center" valign="center" size="small" style="purple-box">\,?\,</text>
 <use matrix="1 0 0 1 0 8" name="mark/disk(sx)" pos="168 644" size="normal" stroke="purple"/>
 <text matrix="1 0 0 1 56 -100" transformations="translations" pos="192 656" stroke="blue" type="minipage" width="72" height="9.989" depth="5.01" valign="center" size="footnote" style="center">\itshape Augmented impl. code with asserts</text>
-<path matrix="0.833333 0 0 1 84 -92" stroke="blue">
+<path matrix="0.833333 0 0 1 84 -92" stroke="blue" pen="ultrafat">
 192 664 m
 192 632 l
 288 632 l
@@ -505,5 +505,52 @@ h
 268 588 l
 268 572 l
 </path>
+<text matrix="1 0 0 1 115.041 -194.598" transformations="translations" pos="172 676" stroke="black" type="minipage" width="72.114" height="6.035" depth="1.05" halign="center" valign="center" size="footnote" style="center">Model Checking</text>
+<text matrix="1 0 0 1 112.288 -227.158" transformations="translations" pos="172 676" stroke="darkgreen" type="minipage" width="64.114" height="11.205" depth="6.23" halign="center" valign="center" size="footnote" style="center">(SPIN, CBMC, AFL, Angr, etc.)</text>
+<text matrix="1 0 0 1 68.9434 -227.849" transformations="translations" pos="192 608" stroke="blue" type="minipage" width="48" height="10.759" depth="5.79" valign="center" size="footnote" style="center">\itshape
+formally\\
+verified</text>
+<text matrix="1 0 0 1 -3.05656 -227.849" transformations="translations" pos="192 608" stroke="blue" type="minipage" width="48" height="10.759" depth="5.79" valign="center" size="footnote" style="center">\itshape bugs\\
+found</text>
+<text matrix="1 0 0 1 140.943 -227.849" transformations="translations" pos="192 608" stroke="blue" type="minipage" width="48" height="5.265" depth="0.27" valign="center" size="footnote" style="center">\itshape undecided</text>
+<path matrix="0.5 0 0 1 164.943 -267.849" stroke="purple" dash="dashed" pen="heavier">
+192 664 m
+192 632 l
+288 632 l
+288 664 l
+h
+</path>
+<path matrix="0.5 0 0 1 236.943 -267.849" stroke="purple" dash="dashed" pen="heavier">
+192 664 m
+192 632 l
+288 632 l
+288 664 l
+h
+</path>
+<path matrix="0.5 0 0 1 92.9434 -267.849" stroke="purple" dash="dashed" pen="heavier">
+192 664 m
+192 632 l
+288 632 l
+288 664 l
+h
+</path>
+<path matrix="1 0 0 1 116.943 -235.849" stroke="blue" dash="dashed" pen="heavier" arrow="normal/small">
+168 652 m
+96 652 l
+96 632 l
+</path>
+<path matrix="1 0 0 1 116.943 -235.849" stroke="blue" dash="dashed" pen="heavier" arrow="normal/small">
+168 652 m
+240 652 l
+240 632 l
+</path>
+<path matrix="1 0 0 1 116.943 -235.849" stroke="blue" dash="dashed" pen="heavier" arrow="normal/small">
+168 668 m
+168 632 l
+</path>
+<text matrix="1.5 0 0 3.5 -9.05656 -1269.85" transformations="translations" pos="180 476" stroke="blue" type="label" width="13.311" height="13.006" depth="0" halign="center" valign="center" size="small" style="purple-box">\textcolor{darkgreen}{\ding{51}}</text>
+<text matrix="1.5 0 0 3.5 -81.0566 -1269.85" transformations="translations" pos="180 476" stroke="blue" type="label" width="11.661" height="13.069" depth="0" halign="center" valign="center" size="small" style="purple-box">\textcolor{red}{\ding{55}}</text>
+<text matrix="1.5 0 0 3.5 62.9434 -1269.85" transformations="translations" pos="180 476" stroke="blue" type="label" width="13.965" height="12.768" depth="0" halign="center" valign="center" size="small" style="purple-box">\,?\,</text>
+<use matrix="1 0 0 1 116.943 -227.849" name="mark/disk(sx)" pos="168 644" size="normal" stroke="purple"/>
 </page>
 </ipe>
