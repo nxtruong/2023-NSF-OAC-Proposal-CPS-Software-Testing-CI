@@ -2,21 +2,26 @@ While the correctness of an implementation with respect to a formal functional s
 Currently it is mostly reserved to domains where it is required by regulations or offers a competitive advantage.
 In practice, it is very useful to rely on a combination of formal methods to achieve an appropriate degree of guarantee:
 automatic static analysis to ensure the absence of runtime errors,
-deductive verification to prove functional correctness,
-and runtime verification for parts of code that cannot be (or are not yet) proved using deductive verification,
-or parts of code that contain \emph{warnings} from static analysis requiring confirmation.
+deductive verification to prove functional correctness of aspects of the code,
+and runtime verification for parts of the code that cannot be (or are not yet) proved using deductive verification,
+or parts of code that generated \emph{warnings} from static analysis requiring confirmation of a problem or refutation of the feasibility of an error.
 
-This project will use \framac{} (\url{https://frama-c.com})~\cite{KKP2015:FAC}.
-It is a widely-used source code analysis platform that aims at conducting verification of industrial-size programs written in ISO C99 source code.
+A core question in our approach is how to represent a specification in a way that is intimately tied to real implementation code.  However, as development of a specification language is not our primary focus, we prefer to build on existing work in the area, extending it when required.
+
+This project will therefore make use of the ideas developed in the ongoing work on the \framac{} (\url{https://frama-c.com})~\cite{KKP2015:FAC} tool as a foundation for the specification and annotation language.
+It is a widely-used source code analysis platform that aims at enabling verification of industrial-size programs written in ISO C99 source code.
 \framac{} fully supports combinations of different approaches, by providing its users with a collection of \emph{plugins} for static and dynamic analyses of safety- and security-critical software.
-Moreover, collaborative verification across cooperating plugins is enabled by their integration on top of a shared kernel, and their compliance to a common specification language: \acsl~\cite{ACSL}.
-\acsl, for ANSI/ISO C Specification Language, is based on the notion of contract as in JML.
-\acsl allows users to specify functional properties of programs through pre/post-condition, and provides different ways to define predicates and logic functions.
+Moreover, collaborative verification across cooperating plugins is enabled by their integration on top of a shared kernel, and, most critically for our purposes, their compliance to a common specification language: \acsl~\cite{ACSL}.
+\acsl, the ANSI/ISO C Specification Language, is based on the notion of a contract as in JML. the Java Modeling Language~\cite{jml}.
+\acsl allows users to specify functional properties of programs through pre/post-conditions, and provides different ways to define predicates and logic functions.
 Many built-in predicates and logic functions are provided, to handle, for example, pointer validity or separation.
 \framac is very appropriate for the verification of typical legacy embedded C code.
 Its specification language is rich but easy to understand: ACSL is essentially a typed first-order logic that contains C expressions.
 
-\emph{Value analysis} is a program analysis technique that computes a set of possible values for every program variable at each program point.
+Using \acsl/\framac as a basis also means that while focusing on our dynamic and model checking tasks, use of our methods automatically provides an additional benefit for embedded systems engineers: access to the current set of \framac analyses.  These are potentially, themselves, quite powerful.  For example:
+
+\begin{itemize}
+\item \emph{Value analysis} is a program analysis technique that computes a set of possible values for every program variable at each program point.
 It is based on the \emph{abstract interpretation} technique proposed by Cousot and Cousot in the 1970's~\cite{cousot77}.
 Its main idea is to compute an abstract view of values of variables in the form of \emph{abstract domains}.
 For example, a usual abstract view for a number value is an interval.
@@ -26,19 +31,20 @@ It can also help to prove other properties for which domain-based reasoning can 
 The \Eva (Evolved Value Analysis) plugin is strongly integrated into the \framac ecosystem.
 It offers a basis for many other derived plugins (see~\cite{KKP2015:FAC}).
 
-\Wp is a \emph{deductive verification} plugin provided with \framac.
+\item \Wp is a \emph{deductive verification} plugin provided with \framac.
 It is based on a weakest precondition calculus.
 Given a C program annotated in \acsl, \Wp generates the corresponding proof obligations that can be discharged by SMT solvers or with interactive proof.
 A combination of automatic and interactive proofs often offers a good trade-off for a complete proof.
-Indeed, some properties can only be defined recursively, and in this case, SMT solvers often become inefficient, trying to unroll them.
-By using inductive or axiomatically defined functions, we can prevent this behavior but reasoning about them still requires induction, a task that SMT solvers are not good at.
-Thus, the last step is generally to state lemmas that can be directly instantiated by SMT solvers.
-This last step hinders the adoption of \framac as it requires the users to also master the \Coq proof assistant or another interactive theorem prover.
-Our recent work showed how to avoid using an interactive theorem prover for this last step~\cite{BLK2019:NFM}.
+Indeed, some properties can only be defined recursively, and in this case, SMT solvers often fail or become extremely inefficient due to the problem of unrolling the property.
+By using inductive or axiomatically defined functions, it is possible to prevent this behavior but reasoning about such cases still requires induction, a task for which SMT solvers seldom excel.
+The solution is often to state lemmas that can be directly instantiated by SMT solvers.
+This last step hinders the adoption of \framac, as it requires the users to also master the \Coq proof assistant or another interactive theorem prover.
+Recent work, however showed how to avoid using an interactive theorem prover for this last step~\cite{BLK2019:NFM}.
 Function contracts in ACSL and loop annotations (verified using SMT solvers) are used instead of ACSL lemmas and \Coq proof scripts.
 This is in line with the goal of this project: to provide automated tools usable by real-world developers.
+\end{itemize}
 
-\framac was initially designed as a static analysis platform, but it was later extended with plugins for dynamic analysis.
+\framac was initially designed as a static analysis platform, but it was later extended with (limited) plugins for dynamic analysis.
 One of these plugins is \eacsl, a runtime verification tool.
 \eacsl supports runtime assertion checking~\cite{CR2006:SEN}.
 Assertions are very convenient for detecting errors and providing information about how a failure occurred.
@@ -47,3 +53,5 @@ In \framac, \eacsl is both the name of the assertion language and the name of a 
 \eacsl is a subset of \acsl: the specifications written in this subset can therefore be used both by \Wp and \eacsl.
 \Wp tries to prove the correctness of these assertions {\em statically} using automated provers, while the plugin \eacsl is used to translate these assertions into executable C code.
 In this case the assertions are checked {\em dynamically}.
+
+However, the \eacsl plugin does not assist developers in the most difficult part of dynamic analysis:  constructing a set of tests that exercise runtime checks to find as many bugs as possible or build confidence in the correctness of the system.  The only assistance provided by \framac in this task is, as discussed in the next section, very limited in capability.
