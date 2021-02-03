@@ -20,7 +20,20 @@ To further improve the value of our approach, we focus on integrating static and
 
 This project is specifically focused on communication protocol implementations in embedded systems where timing is critical to the modeling of behavior, but we expect that our solution will generalize to other critical C and C++ systems development scenarios.  Note that we target the common, hard, case where our approach will be applied to systems with partial or complete existing implementations: typical legacy embedded C code.  We expect developers to learn new tools, but not new programming paradigms or languages.  The contribution to embedded systems design therefore is not a radical reworking of development methods, which, like many formal methods efforts in the past, is unlikely to achieve widespread adoption, but the introduction of, essentially, \emph{an advanced form of unit testing, with more powerful methods for specifying ``testing and verification problems'' and more powerful, low-effort ways to try to solve those problems.}  The end-result for embedded systems engineers will be an approach to development that works with legacy code, and does not require a fundamental shift in approach, but will \emph{support} early adoption of formal modeling as, e.g., timed automata, if present, and, critically, will allow engineers to express the correctness properties in a full-featured way directly in code, while enabling use of a variety of methods to check those properties.  This will modify development, in that design-for-testability and design-for-verifiability will become second nature.  Just as the introduction of the possibility to express \emph{and check} strong typing constraints changed Python development practices for high-value projects, the introduction of the possibility to express \emph{and check} correctness properties will change embedded system development.
 
-{\bf Summary:  Embedded system developers, as a group do not generally use any formal methods at all, with some exceptions, such as if one considers static analysis tools such as Coverity to be ``formal methods'' (we do not).  We suggest this is not because no tools exist that are potentially useful, but because the unpredictability as to which tool(s) will be useful, the high cost of learning to use each tool, and the lack of synergy between tools makes their use impractical.  We propose an \emph{implementation-focused} common annotation method that powers advanced dynamic analyis, with a common framework for automated test generation (including fuzzing and less scalable symbolic approaches), SAT/SMT bounded model checking, and explicit-state model checking.  Our focus is on improving each of these, and the embedded development process, to take advantage of the common approach.  Focusing on ``meeting developers where they are'' is the best (only?) way to actually improve real-world systems development.}
+\noindent\fbox{%
+    \parbox{\textwidth}{%
+\bf Summary:  This project is based on the following core ideas:
+  \begin{enumerate}
+  \item The primary obstacle to adoption of formal methods approaches in embedded systems development is not a lack of relevant methods and tools.
+  \item In particular, there are methods and tools that apply to the \emph{implementation} of embedded systems in C and C++; every embedded software system requires an implementation.
+  \item However, learning and using any one of these tools may or may not ``pay off'' and the effort spent is only of limited application when applying another tool.
+  \item Therefore, to improve embedded systems development via formal methods we need:
+    \begin{enumerate} \item an \emph{implementation-focused} \emph{common framework} for applying methods and tools and
+    \item a focus on \emph{practically-inspired} improvements to the methods and tools encompassed by that framework enabling them to work better \emph{within the framework}.
+      \end{enumerate}
+  \end{enumerate}
+}
+}
 
 \subsubsection{PI Qualifications}
 
