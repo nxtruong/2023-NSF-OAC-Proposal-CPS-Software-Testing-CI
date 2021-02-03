@@ -1,12 +1,15 @@
 The aim of this proposal is to (1) identify a set of principles for the analysis (formal, static,
   and dynamic) of communication protocols and
-  their implementations in embedded systems; (2) implement these theoretical principles in tools usable by
-  engineers developing such systems; and (3) use these tools in two real applications.
-  In the first case study, we will formally, statically, and dynamically analyze networks
+  their implementations in embedded systems; (2) match these theoretical principles with tools usable by
+  engineers developing such systems; and (3) enable the synergistic
+  use of enhanced versions of these tools in two real applications
+  through a common framework with minimal duplication of effort and
+  maximal extraction of information from shared annotations.
+  In the first case study, we will analyze networks
   of wireless sensor/actuator nodes deployed in the Southwest Experimental Garden
   Array (SEGA)~\cite{YamEtAl10,FliEtAl12}, a distributed facility for
   examining climatic, genetic, and environmental factors in plant ecology.
-  The second case study will use the tools to formally verify and dynamically test the distributed coordination code of multiple autonomous ground and aerial robots in a lab setting.
+  The second case study will use the framework to formally verify and dynamically test the distributed coordination code of multiple autonomous ground and aerial robots in a lab setting.
 
 
 \begin{figure}[!t]
@@ -19,12 +22,14 @@ The aim of this proposal is to (1) identify a set of principles for the analysis
 Figure~\ref{fig:overview} shows the overall concept.  The core
 open research problems addressed are represented by two sets of
 arrows.  First, an engineering design, expressed as C code, is
-provided, and annotated with correctness properties and information
-about the expected environment (constraints on sensor values, etc.).
-From this, code to apply advanced static analysis or generation of timed
-automata (TA) models, can be automatically generated.  
+provided, and annotated with correctness properties, information
+about the expected environment (constraints on sensor values, etc.),
+and hints to guide heuristic application of tools ranging from fuzzers
+to symbolic execution engines to model checkers.
+While it is not the focus of this project, code to apply advanced static analysis or generation of timed
+automata (TA) models can also be automatically generated.  
 Our goal is to certify whether the C code truly implements the
-correctness properties in question:
+correctness properties in question, with a focus on dynamic approaches:
 \begin{enumerate}[labelsep=3pt,leftmargin=12pt]
 \item First, the TA model can be used to check high-level properties
   of the design, ignoring many low-level implementation details.  If
@@ -32,14 +37,17 @@ correctness properties in question:
   is best left until the basic design is correct.  However, this step
   may be skipped.
 \item The implementation code with the \acsl annotations and ghost code
-  is checked by a static analysis tool, such \framac.
+  is checked by a static analysis tool, such as \framac.
   There are three possible outcomes:
   {\bf verified:} the implementation can be formally verified, which
   means that it meets the design specifications that can be checked statically;
   {\bf bugs found:} non-spurious bugs are found in the implementation, showing that
     it can violate the specification, and the bugs must be fixed; or
   {\bf undecided:} the static analysis tool is unable to prove or
-  disprove correctness of the implementation, which will often be the case.
+  disprove correctness of the implementation, which will often be the
+  case.  Again, this step can be skipped (though the overhead of
+  running \framac, given we adopt its core specification language, is
+  unlikely to be prohibitive.
 \item Finally, the focus of our efforts is a multi-pronged attempt to refute correctness (or increase our confidence
   in it) via dynamic analysis---automated test generation---and
   implementation-level model checking.
@@ -55,7 +63,7 @@ correctness properties in question:
 \end{enumerate}
 
 Our focus is on providing a unified specification method that can be
-applied to source code itself, and on the dynamic analysis and
+applied to source code itself, and on enabling and enhancing the dynamic analysis and
 explicit-state and SAT/SMT bounded model
 checking aspects of the approach.  We believe these approaches are
 currently the most difficult to apply, and the most likely to
@@ -71,7 +79,7 @@ correctness conditions, we ask:
 \begin{itemize}[labelsep=3pt,leftmargin=12pt]
 \item Given a set of annotated programs, how can we best automatically
   find bugs in those programs (and, in some circumstances, for some
-  properties, prove correctness), based on the annotated
+  properties, prove correctness), based on an annotated
   specification?
 \item Can we generate a skelton of the timed automata model from 
   annotated programs, in order to facilitate analysis of the design, 
@@ -103,7 +111,8 @@ adoption of formal methods and more powerful automated test generation
 approaches, including implementation-level model checking and symbolic
 execution, is likely to be successful to the extent that it enters the
 design and implementation process via this existing ``bridge to
-engineers and developers.''
+engineers and developers.''  Engineers at Google have referred to this
+approach as ``meeting developers where they are''~\cite{meeting}.
 
 
 \paragraph{Tools:} We will focus on C code, using \deepstate~\cite{DeepState}
@@ -118,12 +127,17 @@ provide a powerful static analysis framework, and we well adopt the
   various contexts, ranging from fuzzing to symbolic execution to
   explict-state model checking to bounded model checking in the
   ``dynamic'' \deepstate world, and including a static context for
-  \framac and a modeling conext for timed automata.
-(3) how to handle intra-program parallelism;
-(4) how to effectively translate a failed proof effort in \framac
+  \framac and a modeling conext for timed automata;
+(3) how to minimize annotation burden while allowing developers to
+include information that can be exploited by those methods: e.g., to
+make intelligent use of pre-conditions in fuzzing, to automatically
+derive loop bounds in bounded model checking, and to restrict
+branching factors in explicit-state model checking;
+(4) how to handle intra-program parallelism;
+(5) how to effectively translate a failed proof effort in \framac
   into a representation of a testing problem (to find counterexamples
   refuting that proof could be possible) in a dynamic setting; and
-(5) how to ensure that the methods are sufficiently automatic
+(6) how to ensure that the methods are sufficiently automatic
   and behave in ways engineers (not formal modeling, static, or dynamic
   analysis experts) will expect.
 
@@ -131,4 +145,4 @@ Our focus will be on \emph{practical} solutions, guided by the
 embedded domain experts, rather than on purely theoretical approaches
 that do not scale to real systems. Practical solutions here require
 fundamental contributions to system and specification design and
-semantics and static and dynamic analysis methods.
+semantics and dynamic analysis and model checking approaches.
