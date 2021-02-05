@@ -14,6 +14,28 @@
 \subsection{DeepState and Explicit-State Model Checking}
 \input{spinplan}
 
+\subsection{Generation of Timed Automata Model Skeletons}
+As noted above, one of our core assumptions is that timed automata can
+model the underlying protocols in many embedded systems.  However,
+analysis of timed automata models using \uppaal~\cite{uppaal} and
+\prism~\cite{KNP2011:CAV} is at present a skill only a small number of
+embedded engineers have mastered.  In order to encourage more
+engineers to make use of these powerful formalisms, we will also
+develop a method to extract time automata models for both of these
+model checkers from annotated C code.  By providing some additional
+information with the timing constraints that are included for
+checking during verification of the implementation, engineers can also
+make use of these tools.
+
+\subsection{Case-Study-Driven Problem Determination}
+
+The above briefly introduces a number of problems that we know in advance must
+be dealt with in order to enable a pathway for combining formal,
+static, and dynamic analysis.    However, we aim to allow the case
+studies described below prioritize our work, to a large extent, and
+are certain that other challenges will arise from having real
+engineers apply our approach to real systems.
+
 
 \subsection{Case Study: Sensor/Actuator Networks for Ecological Monitoring and Control}
 \label{sec:case-study}
@@ -27,6 +49,4 @@
 \label{sec:contributions}
 \input{contributions}
 
-\subsection{Work Plan and Evaluation Approach}
-\label{sec:workplan}
-\input{workplan}
+

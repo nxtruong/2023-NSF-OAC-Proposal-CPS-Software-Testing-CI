@@ -24,24 +24,16 @@ Using \acsl/\framac as a basis also means that while focusing on our dynamic and
 \item \emph{Value analysis} is a program analysis technique that computes a set of possible values for every program variable at each program point.
 It is based on the \emph{abstract interpretation} technique proposed by Cousot and Cousot in the 1970's~\cite{cousot77}.
 Its main idea is to compute an abstract view of values of variables in the form of \emph{abstract domains}.
-For example, a usual abstract view for a number value is an interval.
-Value analysis can be very useful to detect potential runtime errors or prove their absence.
-Typical examples include invalid pointers, invalid array indices, arithmetic overflows or division by zero.
-It can also help to prove other properties for which domain-based reasoning can be efficient.
-The \Eva (Evolved Value Analysis) plugin is strongly integrated into the \framac ecosystem.
-It offers a basis for many other derived plugins (see~\cite{KKP2015:FAC}).
+Abstracting variable values as, e.g., intervals can detect invalid pointers, invalid array indices, arithmetic overflows or divisions by zero.
+The \Eva (Evolved Value Analysis) plugin is well integrated with the \framac ecosystem, 
+and is the basis for many other derived plugins (see~\cite{KKP2015:FAC}).
 
 \item \Wp is a \emph{deductive verification} plugin provided with \framac.
 It is based on a weakest precondition calculus.
 Given a C program annotated in \acsl, \Wp generates the corresponding proof obligations that can be discharged by SMT solvers or with interactive proof.
 A combination of automatic and interactive proofs often offers a good trade-off for a complete proof.
-Indeed, some properties can only be defined recursively, and in this case, SMT solvers often fail or become extremely inefficient due to the problem of unrolling the property.
-By using inductive or axiomatically defined functions, it is possible to prevent this behavior but reasoning about such cases still requires induction, a task for which SMT solvers seldom excel.
-The solution is often to state lemmas that can be directly instantiated by SMT solvers.
-This last step hinders the adoption of \framac, as it requires the users to also master the \Coq proof assistant or another interactive theorem prover.
-Recent work, however showed how to avoid using an interactive theorem prover for this last step~\cite{BLK2019:NFM}.
-Function contracts in ACSL and loop annotations (verified using SMT solvers) are used instead of ACSL lemmas and \Coq proof scripts.
-This is in line with the goal of this project: to provide automated tools usable by real-world developers.
+Recent work  showed how to avoid using an interactive theorem prover in some cases even for inductive lemmas~\cite{BLK2019:NFM}, using 
+function contracts in ACSL and loop annotations (verified using SMT solvers).
 \end{itemize}
 
 \framac was initially designed as a static analysis platform, but it was later extended with (limited) plugins for dynamic analysis.
