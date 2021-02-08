@@ -24,11 +24,12 @@ dynamic) for checking that a specification holds.  This project aims
 to further extend this goal by extending it to include a formal
 timed-automata model and to connect the primarily static and dynamic approaches.
 
-There are several work on the implementation and verification of distributed systems,
-and code extraction from automata modeling in the proof assistant \Coq~\cite{WWP2015:PLDI,WWA2016:CPP,DBLP:conf/tacs/Paulin-Mohring01}
-Systems developed in this way are executable thanks to \Coq's extraction mechanism (to OCaml~\cite{MIN2011:CACM} code).
-While being very interesting, these proposals require that the developers master \Coq, and start from the modeling activity to generate code.
-They are therefore not applicable in the context of the verification of legacy embedded C code.
+The implementation and verification of distributed systems,
+and code extraction from automata modeling in the proof assistant
+\Coq~\cite{WWP2015:PLDI,WWA2016:CPP,DBLP:conf/tacs/Paulin-Mohring01}
+is a topic of some previous work.  Such  proposals require that the developers master \Coq, and start from the modeling activity to generate code.
+They are therefore not applicable in the context of the verification
+of legacy embedded C code, the common case in the real world.
 
 Testing real-time systems modeled by networks of timed automata was
 investigated by the authors of the tool \uppaal
@@ -52,13 +53,7 @@ considered in our case study.  Furthermore, by considering only the
 (timed) input/output behavior of a system, this approach may not be
 able to test internal system behaviors and therefore miss
 opportunities for a better test
-coverage.  % and for more scalable testing (by testing internal components of the system instead of the entire system).
-Finally, regardless of how thorough the tests are, generally they will
-not be able to provide a formal guarantee of the conformance between
-the implementation and the model / specifications.  On the contrary,
-if the system code is available, our proposed
-approach can potentially provide such a
-guarantee.
+coverage.
 
 
 
