@@ -51,15 +51,14 @@ correctness properties in question, with a focus on dynamic approaches:
 \item Finally, the focus of our efforts is a multi-pronged attempt to refute correctness (or increase our confidence
   in it) via dynamic analysis---automated test generation---and
   implementation-level model checking.
-  Ghost code, additional runtime assertions, and needed test-harnesses are \emph{automatically generated} from the
+  Ghost code, additional assertions, and needed test-harnesses are \emph{automatically generated} from 
   annotated code.
 \item The augmented implementation code is then analyzed using the
   \deepstate~\cite{DeepState} framework, which serves as a front-end
   to highly scalable fuzzers, as well as to symbolic execution tools
   and explicit-state and SAT/SMT-based bounded model checkers that can
   detect more bugs at the cost of restricted applicability or scalability.  Generated test cases may
-  prove the system faulty, or they may leave us more confident
-  the system is correct.
+  prove the system faulty, or improve confidence in the system.
 \end{enumerate}
 
 Our focus is on providing a unified specification method that can be
@@ -145,4 +144,4 @@ Our focus will be on \emph{practical} solutions, guided by the
 embedded domain experts, rather than on purely theoretical approaches
 that do not scale to real systems. Practical solutions here require
 fundamental contributions to system and specification design and
-semantics and dynamic analysis and model checking approaches.
+dynamic analysis and model checking technologies.
