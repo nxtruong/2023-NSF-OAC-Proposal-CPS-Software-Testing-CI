@@ -145,10 +145,9 @@ and, in theory, translate properties from such models into implementation annota
 
 $\bullet$ T1.2: This task will take feedback from applications of
 tools to generate tests and proofs (T2) into account, to add annotations
-that are fundamentally more concerned with heuristic guidance for
-tools than for correctness per-se.
+that are focused on heuristic guidance for tools, not correctness per se.
 
-One Ph.D. student will be needed to conduct the work in this work package, which will last for the entire duration of the project.
+One Ph.D. student will conduct this work, which will last for the entire duration of the project.
 
 \paragraph{Evaluation:} Evaluation of
 WP1 will be determined by ability of embedded engineers to agree that
@@ -166,32 +165,28 @@ improvements to fuzzers to improve test generation:
 \begin{itemize}[labelsep=3pt,leftmargin=12pt]
 \item T2.1: This task will optimize the implementation of symbolic
   execution and fuzzing in DeepState, so that \acsl/\eacsl annotations
-  and extensions from WP1 can be used in DeepState to test implementation code.
+  and extensions from WP1 can be used effectively.
 \item T2.2: This task will develop DeepState back-ends for CBMC and
-  SPIN, as well as inform annotations needed to handle loop bounds,
-  memory tracking and matching, as well as feedback from fuzzing.
-\item T2.3: In this task, we will augment \deepstate and fuzzers in
-  the multiple ways described in Section~\ref{sec:framac2deepstate},
-  in order to make them more useful in our context.  
+  SPIN, inform annotations needed to handle loop bounds,
+  memory tracking and matching, and make use of feedback from fuzzing.
 \end{itemize}
 
-The execution of this work package will span the entire duration of the project.
+The execution of this work package will also span the entire duration of the project.
 Because the tasks in this package are also based on developing
 verification and test generation tools (thus formal methods
 expertise), the same Ph.D. student will work on WP1 and WP2.  We
 separate the WPs primarily to emphasize that specification extensions
-and tool support are somewhat orthogonal concerns, and evaluated in
-substantially different ways.
+and tool support are somewhat orthogonal concerns, and evaluated differently.
 
 \paragraph{Evaluation:} Evaluation of
-Work Package 2 will be determined by the application
+WP2 will be determined by the application
 of DeepState harnesses to generate tests for realistic
-systems.  We will again use benchmarks and simple examples to some
+systems.  We will use benchmarks and simple examples to some
 extent, but primarily rely on our connection to case studies.
 In the case of test generation, in addition to faults
 detected, we will use code coverage and other standard
 benchmarks~\cite{FuzzerHicks}.  We expect to publish papers on
-advances in fuzzing technology, in particular, as well as papers on
+advances in fuzzing technology and
 fundamental issues arising from the CBMC and SPIN back-ends with
 respect to handling loop bounds and memory tracking/matching.
 
@@ -206,8 +201,7 @@ WP3 includes two case studies:
     at different levels of abstraction, may be developed and formally
     verified in \uppaal and/or \prism, to inform task T1.1. The system information and models
     resulting from this task will inform the semantics design and method
-    developments in WP1 and WP2. As time allows, and pending results
-    with respect to the communication protocol, we will extend this to include sensing
+    developments in WP1 and WP2. As time allows we will extend this work to include sensing
     and control elements.
   \item T3.2: This task will apply the tools developed in WP1 and WP2
     to the SEGA system, in order to detect and fix the particular bugs in the current

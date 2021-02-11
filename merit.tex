@@ -80,9 +80,8 @@ correctness conditions, we ask:
   find bugs in those programs (and, in some circumstances, for some
   properties, prove correctness), based on an annotated
   specification?
-\item Can we generate a skeleton of the timed automata model from 
-  annotated programs, in order to facilitate analysis of the design, 
-  in order to increase adoption of design-level analysis by 
+\item Can we generate a skeleton of a timed automata model from 
+  annotated programs, in order to facilitate adoption of design-level analysis by 
   traditional embedded systems developers? 
 \end{itemize}
 % REMOVED MENTIONS OF THE TOY LANGUAGE
@@ -100,17 +99,14 @@ concerns about reliability, or an activity during design that only
 indirectly informs the implementation.  That is, the more studied
 problem is producing a runtime semantics for a model; we address the
 problem of reconciling a runtime semantics with a model semantics,
-without unrealistic burden on engineers.  We begin with the
-implementation side, because while realtively few embedded systems
-engineers currently use formal models, all must implement their
-systems.  Furthermore, to the extent that developers do more rigorous
-testing and analysis of their systems, they primarily use unit tests, simple
-fuzzing, and static analysis.  Any method that aims to increase the
-adoption of formal methods and more powerful automated test generation
+without unrealistic burden on engineers.  To the extent that developers apply more rigorous
+testing and analysis of their systems, they primarily use unit tests
+and static analysis (and occasionally rudimentary  fuzzing).  Any
+effort to increase the
+adoption of formal methods and automated test generation
 approaches, including implementation-level model checking and symbolic
-execution, is likely to be successful to the extent that it enters the
-design and implementation process via this existing ``bridge to
-engineers and developers.''  Engineers at Google have referred to this
+execution, is likely to be successful to the extent that it enters
+embedded systems engineering practice via this existing pathway.  Engineers at Google have referred to this
 approach as ``meeting developers where they are''~\cite{meeting}.
 
 
@@ -118,28 +114,25 @@ approach as ``meeting developers where they are''~\cite{meeting}.
 as a front-end for dynamic and implementation-level model checking approaches, and
 \uppaal~\cite{uppaal} and
 \prism~\cite{KNP2011:CAV} for the analysis of protocols; \framac will
-provide a powerful static analysis framework, and we well adopt the
+provide a powerful static analysis framework, and we will adopt its
 \acsl language developed for \framac as a basis for our specification language.  The primary open research questions here are numerous, and include:
 % (1) how to handle C constructs that are not part of the toy language;
-(1) how to extend existing specification languages to support timing and uncertainty;
+(1) how to extend existing specification languages to support timing, interrupts,
+and uncertainty;
 (2) how to assign the same meaning to a specification construct in
   various contexts, ranging from fuzzing to symbolic execution to
   explict-state model checking to bounded model checking in the
   ``dynamic'' \deepstate world, and including a static context for
-  \framac and a modeling conext for timed automata;
+  \framac and a modeling context for timed automata;
 (3) how to minimize annotation burden while allowing developers to
 include information that can be exploited by those methods: e.g., to
 make intelligent use of pre-conditions in fuzzing, to automatically
 derive loop bounds in bounded model checking, and to restrict
-branching factors in explicit-state model checking;
+branching factors and store state in explicit-state model checking;
 (4) how to handle intra-program parallelism;
-(5) how to effectively translate a failed proof effort in \framac
-  into a representation of a testing problem (to find counterexamples
-  refuting that proof could be possible) in a dynamic setting; and
-(6) how to ensure that the methods are sufficiently automatic
+(5) how to ensure that the methods are sufficiently automatic
   and behave in ways engineers (not formal modeling, static, or dynamic
   analysis experts) will expect.
-
 Our focus will be on \emph{practical} solutions, guided by the
 embedded domain experts, rather than on purely theoretical approaches
 that do not scale to real systems. Practical solutions here require
