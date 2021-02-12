@@ -2,12 +2,14 @@
 
 \paragraph{Overview:}
 
-Coordinated operation of multiple autonomous robots (multi-robot systems) has many important real-world applications~\cite{multirobot2005,multirobotsurvey2013}.
-For example, in a rescue, security, or disaster response mission, several autonomous aerial robots can coordinate to survey an area, monitor some target objects or activities, and guide ground robots or vehicles.
-In such applications, each robot is autonomous but has the capability to coordinate efficiently and safely with other robots to complete a shared mission, often in a distributed manner without any central coordinator.
+Coordinated operation of multiple autonomous robots %(multi-robot systems)
+has many important real-world applications~\cite{multirobot2005,multirobotsurvey2013}.
+For example, in a rescue, security, or disaster response mission, several autonomous aerial robots can coordinate to survey an area, monitor target objects, % or activities,
+and guide ground robots. % or vehicles.
+In such applications, each robot is autonomous but has the capability to coordinate efficiently and safely with other robots to complete a shared mission, often in a distributed manner. % without any central coordinator.
 Such coordination is essential in real-world applications where the environment is constantly and unexpectedly changing, but is also very challenging.
 The Intelligent Control Systems (ICONS) Lab at NAU, directed by co-PI Nghiem, is developing distributed control and planning methods for multi-robot systems on a platform that includes quadcopters and four fully autonomous vehicles.
-One of the most critical challenges of this research is the guarantee of the safety of a coordination plan, which is typically implemented in C code on the embedded computers of the robots and usually involves wireless inter-robot communication, sensing, and actuation.
+One of the most critical challenges of this research is to guarantee the safety of a coordination plan, which is typically implemented in C code on the embedded computers of the robots and usually involves wireless inter-robot communication, sensing, and actuation.
 
 \paragraph{Problem:}
 
@@ -18,12 +20,13 @@ The methods and tools proposed in this project will help control and robotics re
 
 \paragraph{Plan:}
 
-First, we will model a coordination plan/algorithm for multiple robots as a (potentially very complex) network of timed automata.
+First, we will model a coordination plan %/algorithm
+for multiple robots as a (potentially very complex) network of timed automata.
 Performance specifications will be expressed in temporal logics, e.g., the Signal Temporal Logic (STL)~\cite{donze2010robust}, and checked against the model using verification and testing tools such as \uppaal or S-TaLiRo~\cite{annpureddy2011s}.
-This step ensures that the original coordination algorithm has no subtle flaws, and help us determine properties that need formulation at the implementation level.
+This step ensures that the original coordination plan has no subtle flaws, and helps us determine properties that need formulation at the implementation level.
 An implementation of the algorithm in C code, distributed among the robots, will be developed by a robotics/control student.
 The implementation will be annotated with a specification in our extended \acsl/\eacsl.
-We will thus use DeepState harnesses to generate tests of the implementation components using fuzzing, symbolic execution, and both bounded SAT/SMT based and explicit-state model checking.  Finally, we will determine if a timed automata skeleton extracted from the implementation code corresponds to and would help create a full specification such as we developed before beginning implementation.
+We will then use DeepState harnesses to generate tests of the implementation components using fuzzing, symbolic execution, and both bounded SAT/SMT based and explicit-state model checking.  Finally, we will determine if a timed automata skeleton extracted from the implementation code corresponds to and would help create a full specification such as we developed before beginning implementation.
 % This case study will be conducted by a robotics/control graduate student in the ICONS Lab, using the software tools developed in this project.
 The very different nature and complexity of this study, compared to SEGA, will ensure that our methods and tools work in a variety of kinds of real systems.
 %Given the different nature and complexity of this application compared to the SEGA study, the feedback will be much valuable for the development and improvement of the proposed methods and tools for practical usages in a wide spectrum of real systems.

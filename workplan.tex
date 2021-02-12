@@ -1,4 +1,4 @@
-\begin{wrapfigure}{r}{.35\textwidth}
+\begin{wrapfigure}[11]{r}{.35\textwidth}
 %\begin{figure}[!tp]
 %  \centering
   \resizebox{.35\textwidth}{!}{%
@@ -64,13 +64,10 @@
     ]{WP1}{1}{36}\\ [grid]
     \ganttbluebar[
         name=T11
-    ]{T1.1}{1}{6}\\ [grid]
+    ]{T1.1}{1}{12}\\ [grid]
     \ganttbluebar[
         name=T12
-    ]{T1.2}{7}{24}\\ [grid]
-    \ganttbluebar[
-        name=T13
-    ]{T1.3}{25}{36}\\ [grid]
+    ]{T1.2}{13}{36}\\ [grid]
     % \ganttlinkedbluebar{}{2014-10-7}{2014-10-10}
     % \ganttlinkedbluebar{}{2014-10-14}{2014-10-15}
     % \ganttlinkedbluebar{}{2014-10-17}{2014-10-17}
@@ -84,32 +81,29 @@
     ]{WP2}{1}{36}\\ [grid]
     \ganttbluebar[
         name=T21
-    ]{T2.1}{1}{6}\\ [grid]
+    ]{T2.1}{1}{12}\\ [grid]
     \ganttbluebar[
         name=T22
-    ]{T2.2}{7}{24}\\ [grid]
-    \ganttbluebar[
-        name=T23
-    ]{T2.3}{25}{36}\\ [grid]
+    ]{T2.2}{13}{36}\\ [grid]
 
     \ganttgroup[
         group/.append style={fill=blue}
-    ]{WP3}{1}{6}
-    \ganttgroup[
-        group/.append style={fill=blue}
-    ]{}{19}{36}\\ [grid]
+    ]{WP3}{1}{36}\\ [grid]
     \ganttbluebar[
-        name=T311
-    ]{T3.1}{1}{6}\\ [grid]
+        name=T31
+    ]{T3.1}{1}{12}\\ [grid]
     \ganttbluebar[
-        name=T312
-    ]{T3.2}{19}{36}\\ [grid]
+        name=T32
+    ]{T3.2}{13}{36}\\ [grid]
     \ganttbluebar[
-        name=T321
-    ]{T4.1}{25}{27}\\ [grid]        
+        name=T41
+    ]{T4.1}{7}{12}\\ [grid]        
     \ganttbluebar[
-        name=T322
-    ]{T4.2}{28}{36}
+        name=T42
+    ]{T4.2}{13}{36}\\ [grid]
+    \ganttbluebar[
+        name=T43
+    ]{T4.3}{25}{36}    
     % %Implementing links
     % \ganttlink[link mid=0.75]{Documentation}{FME}
     % \ganttlink{FMETutorial}{FME}
@@ -130,7 +124,7 @@ emphasized in the final phases of the project.
 The timeline of the tasks will be structured as shown in Figure~\ref{fig:project-schedule}.
 
 \paragraph{Work Package 1 (WP1):}  This work package concerns the
-development of and use of \acsl and\eacsl extensions for use in
+development of and use of \acsl and \eacsl extensions for use in
 embedded system implementation
 code.
 
@@ -139,7 +133,7 @@ $\bullet$ T1.1: This task will consider needed extensions for handling
 real-world embedded systems.  In particular, there will be a focus on
 a study of the formal semantics of timed
 automaton networks defined in \uppaal and \prism, to determine the
-extnet to which shared semantics can be assigned making it possible to
+extent to which shared semantics can be assigned making it possible to
 carry implementation annotations into such formal models (see T4.2)
 and, in theory, translate properties from such models into implementation annotations.  As such, there will be close collaboration and iterative design steps between this task and the other work packages. %WP3 (Application).
 
