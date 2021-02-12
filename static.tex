@@ -18,7 +18,7 @@ and is the basis for many other derived plugins (see~\cite{KKP2015:FAC}).
 Another \framac plugin, \Wp, provides \emph{deductive verification} based on a weakest precondition calculus.
 Given a C program annotated in \acsl, \Wp generates the corresponding proof obligations that can be discharged by SMT solvers or via interactive proof.
 Recent work  showed how to avoid using an interactive theorem prover in some cases even for inductive lemmas~\cite{BLK2019:NFM}, using 
-function contracts in ACSL and loop annotations (verified using SMT solvers), making it more possible for engineers to produce some proofs.
+function contracts in ACSL and loop annotations (verified using SMT solvers), making it more usable for engineers.
 
 \framac was initially designed as a static analysis platform, but it was later extended with (very limited) plugins for dynamic analysis.
 One of these plugins is \eacsl, a runtime verification tool.
