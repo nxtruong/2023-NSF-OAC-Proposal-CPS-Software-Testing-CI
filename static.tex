@@ -13,19 +13,10 @@ Moreover, collaborative verification across cooperating plugins is enabled by th
 Many built-in predicates and logic functions are provided, to handle, for example, pointer validity or separation; ACSL is essentially a typed first-order logic that contains C expressions, and is designed to be rich but easy to understand.
 \framac is already applicable to verification of typical legacy embedded C code.
 
-Using \acsl/\framac means that while focusing on dynamic analysis and model checking, our approach automatically provides an additional benefit for embedded systems engineers: access to the current set of \framac analyses, which are themselves powerful and useful.  For example, \framac provides advanced \emph{value analysis} plugins, based on \emph{abstract interpretation}~\cite{cousot77}, where abstracting variable values, e.g., as intervals, can detect invalid pointers, invalid array indices, arithmetic overflows or divisions by zero.  The \Eva (Evolved Value Analysis) plugin is well integrated with the \framac ecosystem, 
-and is the basis for many other derived plugins (see~\cite{KKP2015:FAC}).
-Another \framac plugin, \Wp, provides \emph{deductive verification} based on a weakest precondition calculus.
-Given a C program annotated in \acsl, \Wp generates the corresponding proof obligations that can be discharged by SMT solvers or via interactive proof.
-Recent work  showed how to avoid using an interactive theorem prover in some cases even for inductive lemmas~\cite{BLK2019:NFM}, using 
-function contracts in ACSL and loop annotations (verified using SMT solvers), making it more usable for engineers.
+Using \acsl/\framac means that while focusing on dynamic analysis and model checking, our approach automatically provides an additional benefit for embedded systems engineers: access to the current set of powerful \framac static analyses.  \framac provides both abstract interpretation~\cite{cousot77} based analysis plugins and deductive verification plugins based on a weakest precondition calculus; the latter have recently been improved to make proof without interacting with a theorem prover easier for engineers~\cite{BLK2019:NFM}.
 
-\framac was initially designed as a static analysis platform, but it was later extended with (very limited) plugins for dynamic analysis.
-One of these plugins is \eacsl, a runtime verification tool.
-\eacsl supports runtime assertion checking~\cite{CR2006:SEN}.
+\framac was designed as a static analysis platform, but has been extended with limited plugins for dynamic analysis.
+One of these plugins is \eacsl, which supports runtime assertion checking~\cite{CR2006:SEN}.
 In \framac, \eacsl is both the name of the assertion language and the name of a plugin that generates C code to check these assertions at runtime.
-\eacsl is a subset of \acsl: the specifications written in this subset can therefore be used both by \Wp and \eacsl.
-\Wp tries to prove the correctness of these assertions {\em statically} using automated provers, while the plugin \eacsl is used to translate these assertions into executable C code.
-In this case the assertions are checked {\em dynamically}.
-
-However, the \eacsl plugin does not assist developers in the most difficult part of dynamic analysis:  constructing a set of tests that exercise the checks to find as many bugs as possible or build confidence in the correctness of the system.  The only assistance provided by \framac in this task is, as discussed in the next section, very limited in capability.  Again, rather than ``re-inventing the wheel'' and offering a solution that lacks a strong static aspect we aim to address this limitation, and extend \acsl and \eacsl, in accordance with our focus on common frameworks and cross-tool synergy. 
+\eacsl is a subset of \acsl.  The plugin \eacsl is used to translate a subset of \framac assertions into executable C code.
+However, the \eacsl plugin does not support all the specification constructs we need, or assist developers in the most difficult part of dynamic analysis:  constructing a set of tests that exercise the checks.  The only assistance provided by \framac in this task is, as discussed in the next section, very limited in capability.  Again, rather than ``re-inventing the wheel'' and offering a solution that lacks a strong static aspect we aim to address this limitation, and extend \acsl and \eacsl, in accordance with our focus on common frameworks and cross-tool synergy. 
