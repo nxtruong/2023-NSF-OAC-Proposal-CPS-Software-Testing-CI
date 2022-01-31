@@ -18,7 +18,10 @@ Which path is most important to realize?  Our approach is based in the reality o
 This project therefore proposes to make it possible to introduce specifications into implementation code that can be directly checked using sophisticated automated test generation strategies, including symbolic execution, advanced fuzzing, explicit-state model checking, and SAT/SMT-based bounded model checking.   Furthermore, these specifications can be directly exported to form the basis for formal models using, e.g., timed automata.  In the long run, to benefit those developers who are more open to formal methods already, we hope that these annotations can be imported from a timed automata representation, but we begin where most embedded systems developers are, now, not where we hope they may be, someday.
 We additionally focus on using frameworks/front-ends allowing application of multiple approaches.  Our committment is to enabling \emph{a maximum diversity of analysis methods} with \emph{a minimum of specification and tool-learning effort}, to make formal methods attractive \emph{simply because of their expected cost-benefit ratio}.
 
-This project is specifically focused on communication protocol implementations in embedded systems where timing is critical to the modeling of behavior, but we expect that our solution will generalize to other critical low-level development efforts because we target the common, hard, case where our approach will be applied to systems with partial or complete existing implementations: typical legacy embedded C code.  We expect developers to learn new tools, but not new programming paradigms or languages.  The proposed contribution to embedded systems design is not a radical reworking of development methods, which, like many formal methods efforts in the past, would be unlikely to achieve widespread adoption, but the introduction of \emph{an advanced form of unit testing, that works with legacy code, with more powerful methods for specification and checking of correctness.}  This will modify development, in that design-for-testability and design-for-verifiability will become second nature---just as the introduction of the possibility to express \emph{and check} strong typing constraints changed Python development practices for projects where reliability and correctness really mattered.  This project is therefore based on the following core ideas:
+\deleted{This project is specifically focused on communication protocol implementations in embedded systems where timing is critical to the modeling of behavior, but we expect that our solution will generalize to other critical low-level development efforts because we target the common, hard, case where our approach will be applied to systems with partial or complete existing implementations: typical legacy embedded C code.}
+\added{This project is specifically focused on embedded and networked systems, specifically wireless sensor networks and multi-robotic systems, where timing, communication, interactions with the physical world, and uncertainty are major challenges in modeling the system behaviors.
+However, we anticipate that our solution will generalize to other application domains that share the characteristics and main challenges with our applications.}
+We expect developers to learn new tools, but not new programming paradigms or languages.  The proposed contribution to embedded systems design is not a radical reworking of development methods, which, like many formal methods efforts in the past, would be unlikely to achieve widespread adoption, but the introduction of \emph{an advanced form of unit testing, that works with legacy code, with more powerful methods for specification and checking of correctness.}  This will modify development, in that design-for-testability and design-for-verifiability will become second nature---just as the introduction of the possibility to express \emph{and check} strong typing constraints changed Python development practices for projects where reliability and correctness really mattered.  This project is therefore based on the following core ideas:
 
 \noindent\fbox{%
   \bf
@@ -35,6 +38,16 @@ This project is specifically focused on communication protocol implementations i
 }
 }
 
-\subsubsection{PI Qualifications}
+\subsection{\added{Field Application Domains}}
+\label{sec:field-applications}
+
+\added{%
+  The proposed research is motivated by applications in embedded and networked systems, in particular wirelss sensor networks and multi-robot systems.
+  A wireless sensor network (WSN) consists of multiple, often many, sensor nodes that communicate via a wireless network to with servers and/or with other sensor nodes.
+  In a WSN, each sensor monitors some physical quantities, such as air temperature, humidity, and CO$_{2}$ concentration level, and exchanges its measurement data with central servers or with other sensors for specific objectives, such as for monitoring and forecasting wildfires.
+  Each sensor node typically 
+}
+
+\subsection{PI Qualifications}
 
 See the collaboration plan for an extensive examination of PI Qualifications; in brief, PI Groce has extensive history with formal methods and testing tool development, and practical application to real-world embedded systems.  Co-PI Nghiem is an expert in control and autonomy for robotics, including use of formal methods, and   Co-PI Flikkema has extensive experience with deployed real-world embedded systems and networks.
