@@ -1,16 +1,23 @@
-The aim of this proposal is to (1) identify a set of principles for the analysis (formal, static,
-  and dynamic) of communication protocols and
-  their implementations in embedded systems; (2) match these theoretical principles with tools usable by
-  engineers developing such systems; and (3) enable the synergistic
-  use of enhanced versions of these tools in two real applications
-  through a common framework with minimal duplication of effort and
-  maximal extraction of information from shared annotations.
-  In the first case study, we will analyze networks
-  of wireless sensor/actuator nodes deployed in the Southwest Experimental Garden
-  Array (SEGA)~\cite{YamEtAl10,FliEtAl12}, a distributed facility for
-  examining climatic, genetic, and environmental factors in plant ecology.
-  The second case study will use the framework to formally verify and dynamically test the distributed coordination code of multiple autonomous ground and aerial robots in a lab setting.
+\notetruong{Alex: let me know if we need to update Figure~\ref{fig:overview}.}
 
+The aim of this proposal is to (1) identify a set of principles for
+the analysis (formal, static, and dynamic) of implementations of
+embedded and networked systems; (2) match these theoretical principles
+with tools usable by engineers developing such systems; and (3) enable
+the synergistic use of enhanced versions of these tools in real
+applications through a common framework with minimal duplication of
+effort and maximal extraction of information from shared annotations.
+In the first case study, we will analyze networks of wireless sensor
+nodes deployed in the Southwest Experimental Garden Array
+(SEGA)~\cite{YamEtAl10,FliEtAl12} -- a distributed facility for
+examining climatic, genetic, and environmental factors in plant
+ecology -- and in the Distributed Sensing \& Computing Over Sparse
+Environments (DISCOVER) Platform -- an NSF CCRI project that develops
+a large-scale and diverse testbed for wireless sensor networks and
+multi-robot systems.  The second case study will use the framework to
+formally verify and dynamically test implementations of autonomous
+control and coordination of multiple autonomous terrestrial and aerial
+robots on the DISCOVER platform.
 
 \begin{figure}[!t]
   \centering
@@ -61,12 +68,12 @@ currently the most difficult to apply, and the most likely to
 dramatically improve the ability to detect bugs in complex embedded
 systems designs.
 
-\paragraph{Principles:} Assuming that a communication protocol can in theory be described
-as (probabilistic) timed automata~\cite{AD1994:TCS},
-which satisfies temporal logic
-formulas~\cite{BLM2017:LNCS}, and implemented as a set of
-imperative programs that realize these timing constraints and other
-correctness conditions, we ask:
+\paragraph{Principles:} Assuming that an algorithm for an embedded and
+networked system, such as a communication protocol, can in theory be
+described as (probabilistic) timed automata~\cite{AD1994:TCS}, which
+satisfies temporal logic formulas~\cite{BLM2017:LNCS}, and implemented
+as a set of imperative programs that realize these timing constraints
+and other correctness conditions, we ask:
 \begin{itemize}[labelsep=3pt,leftmargin=12pt]
 \item Given a set of annotated programs, how can we best automatically
   find bugs in those programs (and, in some circumstances, for some
@@ -130,3 +137,13 @@ embedded domain experts, rather than on purely theoretical approaches
 that do not scale to real systems. Practical solutions here require
 fundamental contributions to system and specification design and
 dynamic analysis and model checking technologies.
+
+\paragraph{\added{Field applications:}}
+\added{This project will contribute significantly to the field domains of embedded and networked systems, especially in safety-critical applications where correctness and reliability are vital.
+The practical methods and tools developed by our team will enable domain experts, particularly domain engineers without formal training in formal methods and software testing, to test and verify their code against critical requirements to not only reduce bugs but also gain confidence in their systems.}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End:

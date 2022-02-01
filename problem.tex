@@ -11,6 +11,8 @@ Consider the case of an embedded systems engineer working on a custom, low-energ
 
 \subsection{Proposed Solution}
 
+\notetruong{I think we should replace ``legacy code'' with a new term to mean code that is written / will be written without any thought / incorporation of testing / verification, i.e., the majority of code in engineering fields.}
+
 While allowing efforts from any form of formal or automated verification or validation attempt to carry over to other forms (i.e., formal models to code annotations for static analysis, code annotations to test harnesses, test harnesses to code annotations, test harnesses to formal models, formal models to test harnesses, and code annotations to formal models) is the ideal goal, simply making it possible to follow \emph{one} critical path to combine methods is feasible given current technologies in the sub-domains (formal modeling, static analysis, and dynamic analysis) and a set of specific advances in bridging the gap between the technologies.
 
 Which path is most important to realize?  Our approach is based in the reality of the embedded systems domain, where, while formal modeling is sometimes used, there is, in real-world efforts, \emph{always} an implementation.  The most basic obstacle to the adoption of formal methods in embedded systems work is that if there is only the usual informal design effort or adaptation of a legacy implementation, formal methods are often simply inapplicable.  By focusing on \emph{adding annotations to implementation code}, and exploiting those annotations to enable a set of potentially bug-finding or correctness-proving analyses, we promise to \emph{always} give embedded systems engineers a reasonable payoff, often in the form of \emph{tests showing real bugs}.
@@ -19,7 +21,7 @@ This project therefore proposes to make it possible to introduce specifications 
 We additionally focus on using frameworks/front-ends allowing application of multiple approaches.  Our committment is to enabling \emph{a maximum diversity of analysis methods} with \emph{a minimum of specification and tool-learning effort}, to make formal methods attractive \emph{simply because of their expected cost-benefit ratio}.
 
 \deleted{This project is specifically focused on communication protocol implementations in embedded systems where timing is critical to the modeling of behavior, but we expect that our solution will generalize to other critical low-level development efforts because we target the common, hard, case where our approach will be applied to systems with partial or complete existing implementations: typical legacy embedded C code.}
-\added{This project is specifically focused on embedded and networked systems, specifically wireless sensor networks and multi-robotic systems, where timing, communication, interactions with the physical world, and uncertainty are major challenges in modeling the system behaviors.
+\added{This project is specifically focused on embedded and networked systems, specifically wireless sensor networks and multi-robotic systems, where timing, communication, interactions with the physical world, and uncertainty are some major challenges in modeling the system behaviors.
 However, we anticipate that our solution will generalize to other application domains that share the characteristics and main challenges with our applications.}
 We expect developers to learn new tools, but not new programming paradigms or languages.  The proposed contribution to embedded systems design is not a radical reworking of development methods, which, like many formal methods efforts in the past, would be unlikely to achieve widespread adoption, but the introduction of \emph{an advanced form of unit testing, that works with legacy code, with more powerful methods for specification and checking of correctness.}  This will modify development, in that design-for-testability and design-for-verifiability will become second nature---just as the introduction of the possibility to express \emph{and check} strong typing constraints changed Python development practices for projects where reliability and correctness really mattered.  This project is therefore based on the following core ideas:
 
@@ -42,12 +44,35 @@ We expect developers to learn new tools, but not new programming paradigms or la
 \label{sec:field-applications}
 
 \added{%
-  The proposed research is motivated by applications in embedded and networked systems, in particular wirelss sensor networks and multi-robot systems.
-  A wireless sensor network (WSN) consists of multiple, often many, sensor nodes that communicate via a wireless network to with servers and/or with other sensor nodes.
-  In a WSN, each sensor monitors some physical quantities, such as air temperature, humidity, and CO$_{2}$ concentration level, and exchanges its measurement data with central servers or with other sensors for specific objectives, such as for monitoring and forecasting wildfires.
-  Each sensor node typically 
-}
+  The proposed research is motivated by applications in embedded and networked systems, in particular wireless sensor networks and multi-robot systems.
+  A wireless sensor network (WSN) consists of multiple, often many, sensor nodes that communicate via a wireless network with servers and/or other sensor nodes.
+  In a WSN, each sensor monitors some physical quantities, such as air temperature, humidity, and CO$_{2}$ concentration level, and exchanges its measurement data with other entities %central servers or with other sensors
+  for specific objectives, such as for monitoring and forecasting wildfires.
+  Each sensor node typically has some limited computing power of an embedded microprocessor and limited energy provided by a battery and/or a renewal energy source.
+  Furthermore, wireless communication in a WSN is often subject to frequent %uncertainty such as
+  packet drops and other failures.
+  Consequently, some of the major challenges for the reliability and correctness of WSNs include timing and communication uncertainty, and computing and energy constraints.
+  In addition, testing and verifying software code of sensor nodes face another significant hurdle due to their nature of interacting directly with the physical world, which involves another level of uncertainty and is not easily replicable in a software testing or verification tool.
+  %
+  A multi-robot system (MRS) consists of multiple robots, possibly of different types such as terrestrial robots and aerial drones, which coordinate to perform certain tasks, such as package delivery, disaster rescue, and surveillance.
+  An MRS carries similar major challenges as a WSN.
+  % While their computing power and energy are often less constrained,
+  Due to the complexity of their dynamics and interactions with the physical world, testing and verifying software code of robots, especially cooperative robots in a MRS, are particularly challenging.}
+
+\added{%
+  In summary, this project focuses on the following major challenges of the field application domains of embedded and networked systems:
+  (1) timing and communication uncertainty,
+  (2) complex dynamic behaviors, and
+  (3) interactions with the physical world.
+  They will be addressed by a combination of approaches, from both the formal method and software testing disciplines and the field application disciplines.
+  Case studies in real-world WSNs and MRS, which are representative of embedded and networked systems and their challenges, will be used for validating and demonstrating our proposed solution.}
 
 \subsection{PI Qualifications}
 
 See the collaboration plan for an extensive examination of PI Qualifications; in brief, PI Groce has extensive history with formal methods and testing tool development, and practical application to real-world embedded systems.  Co-PI Nghiem is an expert in control and autonomy for robotics, including use of formal methods, and   Co-PI Flikkema has extensive experience with deployed real-world embedded systems and networks.
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End:
