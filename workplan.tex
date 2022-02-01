@@ -184,73 +184,85 @@ advances in fuzzing technology and
 fundamental issues arising from the CBMC and SPIN back-ends with
 respect to handling loop bounds and memory tracking/matching.
 
-\notetruong{Update work package and tasks related to case studies.}
-
-\paragraph{Work Package 3 (WP3):}  This work package will focus on the applications described in Sections~\ref{sec:case-study} and \ref{sec:case-study-robots}, as both a way to inform the methodology and tool developments in the other work packages and case studies in two completely different domains to validate our methods and tools.
-WP3 includes two case studies:
-\paragraph{SEGA case study (Section~\ref{sec:case-study}):} This application is divided into two tasks:
+\paragraph{Work Package 3 (WP3):}  This work package will focus on the field applications described in Section~\ref{sec:case-study}, as both a way to inform the methodology and tool developments in the other work packages and case studies %in two completely different domains
+to validate our methods and tools.
+WP3 includes the following case studies:
+\paragraph{Wireless sensor network (WSN) case studies on SEGA and DISCOVER.} This %application
+is divided into two tasks:
 \noindent  \begin{itemize}[labelsep=3pt,leftmargin=12pt]
-  \item T3.1: In this task, the existing SEGA system will be
-    studied thoroughly to extract the key requirements and
-    characteristics of the embedded system implementation.  Timed
-    automaton models of the communication protocol used in the system,
-    at different levels of abstraction, may be developed and formally
-    verified in \uppaal and/or \prism, to inform task T1.1. The system information and models
-    resulting from this task will inform the semantics design and method
-    developments in WP1 and WP2. As time allows we will extend this work to include sensing
-    and control elements.
-  \item T3.2: This task will apply the tools developed in WP1 and WP2
-    to the SEGA system, in order to detect and fix the particular bugs in the current
-    implementation that cause the intermittent failures mentioned in
-    Section~\ref{sec:case-study}.  It will also provide feedback to
-    the other work packages to refine and improve our tools.
+\item T3.1: In this task, the %existing SEGA
+  wireless sensor node systems will be studied thoroughly to extract
+  the key requirements and characteristics of the embedded system
+  implementations.  Timed automaton models of the communication
+  protocol in each system, at different levels of abstraction, may be
+  developed and formally verified in \uppaal and/or \prism, to inform
+  task T1.1.  The system information and models resulting from this
+  task will inform the semantics design and method developments in WP1
+  and WP2.  As time allows we will extend this work to include sensing
+  elements.
+\item T3.2: This task will apply the tools developed in WP1 and WP2 to
+  the WSN systems, %in order
+  to detect and fix bugs in
+  the %embedded software implementations of the
+  communication protocol implementations; in particular, the bugs that
+  cause the intermittent failures in
+  SEGA. % mentioned in Section~\ref{sec:case-study}.
+  It will also provide feedback to the other work packages to refine
+  and improve our tools.
   \end{itemize}
 
-\paragraph {Robotics case study (Section~\ref{sec:case-study-robots}):} this study, in the last year of the project, is divided into two tasks:
+\paragraph {Multi-robot system case study on DISCOVER.} This study is divided into three tasks:
 \noindent \begin{itemize}[labelsep=3pt,leftmargin=12pt]
-  \item T4.1: In this task, a multi-robot coordination algorithm
-    currently used with our existing multi-robot system will be
-    modeled as a network of timed automata.  Using our insights into
-    the robotics application, we will express its performance
-    specifications, particularly its safety requirements, in temporal
-    logics and formally verify or test them in tools like \uppaal,
-    \prism, or S-TaLiRo.  This task will extend the semantics and
-    methods developed to applications beyond communication protocols,
-    to identify further needed runtime extensions and semantic
-    connections between timed automata theory, implementation
-    annotations, and runtime checks.
-  \item T4.2: This task will apply the tools developed in WP1 and WP2
-    to the coordinated multi-robot system, in order to validate the
-    implementation code and detect and fix its bugs.  It will also
-    provide feedback to the other work packages to refine and improve
-    the tools developed in this project.
-    \item T4.3: This task will aim to use the work on the robotics
-      effort to prototype a mapping from implementation code
-      annotations in \acsl/\eacsl and extensions into skeletons of
-      models in timed automata formalisms.  
+\item T4.1: In this task, a standard multi-robot coordination
+  algorithm %currently used with our existing multi-robot system
+  will be modeled as a network of timed automata.  Using our insights
+  into the robotics application, we will express its performance
+  specifications, particularly its safety requirements, in temporal
+  logics and formally verify or test them in tools like \uppaal,
+  \prism, or S-TaLiRo.  This task will extend the developed semantics
+  and methods to applications beyond communication protocols, to
+  identify further needed runtime extensions and semantic connections
+  between timed automata theory, implementation annotations, and
+  runtime checks.
+\item T4.2: This task will apply the tools developed in WP1 and WP2,
+  and the robot simulation environment of the DISCOVER platform, to
+  the coordinated multi-robot system, in order to validate the
+  implementation code and detect and fix possible bugs.  It will also
+  provide feedback to the other work packages to refine and improve
+  the tools developed in this project.
+\item T4.3: This task will aim to use the work on the robotics effort
+  to prototype a mapping from implementation code annotations in
+  \acsl/\eacsl and extensions into skeletons of models in timed
+  automata formalisms.
   \end{itemize}
 
 As the tasks in this work package are conducted in tandem with WP1 and WP2, to form a feedback loop with the developments in other work packages, it will last for the entire duration of the project.
 We expect that groups of undergraduate students, in collaboration with
 an embedded systems Ph.D. student and the Ph.D. students in WP1 and WP2, will
 perform the work.
+Close collaboration with the DISCOVER team, led by Dr. Flikkema and Dr. Nghiem, is expected.
 
 \paragraph{Evaluation:} In essence, this task \emph{is} the evaluation
-aspect of our project, which forms one of the major thrusts of
-the project.  The successful application of WP1 and WP2 tools to the case studies is
-essentially the driving factor in determining our success in the
-project.
+aspect of our project, which forms one of the major thrusts of the
+project.  The successful application of WP1 and WP2 tools to the case
+studies is essentially the driving factor in determining our success
+in the project.
 %, and the key feedback to drive changes to our research
 %priorities or technical choices.
-The measure of success is (1) faults detected and corrected (2) functionality
-proven correct using CBMC, symbolic execution engines, or SPIN (3) coverage and other measures
-of generated tests and (4) reported usability and value by embedded
-systems engineers, particularly students.  For T4.3, the evaluation
-will be based on a formal comparison of the extracted skeleton with
-full timed automata models developed by embedded systems experts. The
-degree of 
-success will be estimated based on the correspondence with a real model.
+The measure of success is: (1) faults detected and corrected; (2)
+functionality proven correct using CBMC, symbolic execution engines,
+or SPIN; (3) coverage and other measures of generated tests; and (4)
+reported usability and value by embedded systems engineers,
+particularly students.  For T4.3, the evaluation will be based on a
+formal comparison of the extracted skeleton with full timed automata
+models developed by embedded systems experts. The degree of success
+will be estimated based on the correspondence with a real model.
 
 %\subsubsection{Timeline}
 %\label{sec:time-line}
 
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End:
