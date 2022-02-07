@@ -133,7 +133,12 @@ a study of the formal semantics of timed
 automaton networks defined in \uppaal and \prism, to determine the
 extent to which shared semantics can be assigned making it possible to
 carry implementation annotations into such formal models (see T4.2)
-and, in theory, translate properties from such models into implementation annotations.  As such, there will be close collaboration and iterative design steps between this task and the other work packages. %WP3 (Application).
+and, in theory, translate properties from such models into
+implementation annotations.  In addition, this task will include
+initial consultation with engineer from Galois
+(\url{https://galois.com}) to discuss needs for their customers and
+tools.  Galois is a key player in the space of annotations and tools
+for critical low-level system verification.
 
 $\bullet$ T1.2: This task will take feedback from applications of
 tools to generate tests and proofs (T2) into account, to add annotations
@@ -145,14 +150,16 @@ One Ph.D. student will conduct this work, which will last for the entire duratio
 WP1 will be determined by ability of embedded engineers to agree that
 the key properties, including those related to timed automata models, to be checked are (1) all representable by the
 annotations (2) easy to construct (3) easy to read when produced by others and
-(4) maintainable after introduction.
+(4) maintainable after introduction.  In addition to our own case
+studies, discussion with Galois engineers will inform our evaluation:
+can annotations serve real-world customer needs and be applied to
+tools outside our initial scope, with ease?
 
 \paragraph{Work Package 2 (WP2):}  This work package covers
 methods and tools to automatically translate \acsl/\eacsl-annotated code in
 into a \deepstate test harness (Section~\ref{sec:framac2deepstate}),
-the development of DeepState back-ends for CBMC and SPIN, with
-appropriate mechanisms to ease the use of these tools, and
-improvements to fuzzers to improve test generation:
+the development of DeepState back-ends for CBMC and SPIN, and
+improvements to fuzzers:
 \begin{itemize}[labelsep=3pt,leftmargin=12pt]
 \item T2.1: This task will optimize the implementation of symbolic
   execution and fuzzing in DeepState, so that \acsl/\eacsl annotations
