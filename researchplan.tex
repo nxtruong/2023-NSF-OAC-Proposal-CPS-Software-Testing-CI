@@ -14,15 +14,21 @@
 \subsection{DeepState and Explicit-State Model Checking}
 \input{spinplan}
 
-\subsection{Generation of Timed Automata Model Skeletons}
+\subsection{DeepState and Timed Automata Model Skeletons}
 As noted above, one of our core assumptions is that timed automata can
 model the underlying protocols in many embedded systems.  However,
-analysis of timed automata models using \uppaal~\cite{uppaal} and
+writing timed automata models using \uppaal~\cite{uppaal} and
 \prism~\cite{KNP2011:CAV} is at present a skill only a small number of
 embedded engineers have mastered.  In order to encourage more
-engineers to make use of these powerful formalisms, we will also
-develop a method to extract timed automata model skeletons for both of these
-model checkers from annotated C code.  
+engineers to make use of these powerful formalisms, we propose 1) to
+enable DeepState to generate \emph{traces} of the annotations related
+to timing that are covered during a run and 2) to build a tool to
+combine and reconcile these traces into a skeleton model for \uppaal~\cite{uppaal} or
+\prism~\cite{KNP2011:CAV}.  The structure of code (function locations
+of DeepState annotations) will be used to form the structure of the
+model.  Additional annotations for, e.g. probabilities, may need to be
+added if not present in the code annotations, though DeepState already
+has a primitive support for expressing probabilities that we plan to extend.
 
 \subsection{Case Studies} % for Ecological Monitoring and Control}
 \label{sec:case-study}

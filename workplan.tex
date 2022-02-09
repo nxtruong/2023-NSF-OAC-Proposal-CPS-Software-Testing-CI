@@ -115,13 +115,12 @@
 \end{wrapfigure}
 
 The project will be organized into two phases, described by work
-packages.  In the first phase, T3.1 will be conducted along with T1.1 and will inform the development in these tasks.
+packages.  In the first phase, T3.1 will be conducted along with and
+inform T1.1 (see Figure~\ref{fig:project-schedule}).
 In the second phase, the focus will be on the application of tools in
 T1.2 in tandem with T2.
-Tasks related to case studies (tasks T4.1, and T4.2), whose results
-and feedback will help refine the developed tools will be especially
-emphasized in the final phases of the project.
-The timeline of the tasks will be structured as shown in Figure~\ref{fig:project-schedule}.
+Tasks related to case studies (tasks T4.1, and T4.2) will help refine the developed tools especially
+in the final phases of the project.
 
 \paragraph{Work Package 1 (WP1):}  This work package concerns the
 development of and use of \acsl and \eacsl extensions.
@@ -132,10 +131,8 @@ real-world embedded systems.  In particular, there will be a focus on
 a study of the formal semantics of timed
 automaton networks defined in \uppaal and \prism, to determine the
 extent to which shared semantics can be assigned making it possible to
-carry implementation annotations into such formal models (see T4.2)
-and, in theory, translate properties from such models into
-implementation annotations.  In addition, this task will include
-initial consultation with engineer from Galois
+carry implementation annotations into such formal models.  In addition, this task will include
+initial consultation with engineers from Galois
 (\url{https://galois.com}) to discuss needs for their customers and
 tools.  Galois is a key player in the space of annotations and tools
 for critical low-level system verification.
@@ -151,14 +148,12 @@ WP1 will be determined by ability of embedded engineers to agree that
 the key properties, including those related to timed automata models, to be checked are (1) all representable by the
 annotations (2) easy to construct (3) easy to read when produced by others and
 (4) maintainable after introduction.  In addition to our own case
-studies, discussion with Galois engineers will inform our evaluation:
-can annotations serve real-world customer needs and be applied to
-tools outside our initial scope, with ease?
+studies, discussion with Galois engineers will inform our evaluation.
 
 \paragraph{Work Package 2 (WP2):}  This work package covers
-methods and tools to automatically translate \acsl/\eacsl-annotated code in
+automatically translation of \acsl/\eacsl-annotated code 
 into a \deepstate test harness (Section~\ref{sec:framac2deepstate}),
-the development of DeepState back-ends for CBMC and SPIN, and
+development of back-ends for CBMC and SPIN, and
 improvements to fuzzers:
 \begin{itemize}[labelsep=3pt,leftmargin=12pt]
 \item T2.1: This task will optimize the implementation of symbolic
@@ -181,15 +176,10 @@ WP2 will be determined by the application
 of DeepState harnesses to generate tests for realistic
 systems.  We will use benchmarks and simple examples to some
 extent, but primarily rely on our connection to case studies.
-In the case of test generation, in addition to faults
-detected, we will use code coverage and other standard
-benchmarks~\cite{FuzzerHicks}.  We expect to publish papers on
-advances in fuzzing technology and
-fundamental issues arising from the CBMC and SPIN back-ends with
-respect to handling loop bounds and memory tracking/matching.
+For test generation, we will use coverage and faults
+detected as measures~\cite{FuzzerHicks}.  
 
-\paragraph{Work Package 3 (WP3):}  This work package will focus on the field applications described in Section~\ref{sec:case-study}, as both a way to inform the methodology and tool developments in the other work packages and case studies %in two completely different domains
-to validate our methods and tools.
+\paragraph{Work Package 3 (WP3):}  This work package will focus on the field applications described in Section~\ref{sec:case-study}, as both a way to inform the methodology and tool developments.
 WP3 includes the following case studies:
 \paragraph{Wireless sensor network (WSN) case studies on SEGA and DISCOVER.} This %application
 is divided into two tasks:
@@ -231,13 +221,10 @@ is divided into two tasks:
 \item T4.2: This task will apply the tools developed in WP1 and WP2,
   and the robot simulation environment of the DISCOVER platform, to
   the coordinated multi-robot system, in order to validate the
-  implementation code and detect and fix possible bugs.  It will also
-  provide feedback to the other work packages to refine and improve
+  implementation code, detect and fix possible bugs, and improve
   the tools developed in this project.
-\item T4.3: This task will aim to use the work on the robotics effort
-  to prototype a mapping from implementation code annotations in
-  \acsl/\eacsl and extensions into skeletons of models in timed
-  automata formalisms.
+\item T4.3: This task will aim to apply the DeepState-trace driven
+  route to produce timed automata skeletons.
   \end{itemize}
 
 As the tasks in this work package are conducted in tandem with WP1 and WP2, to form a feedback loop with the developments in other work packages, it will last for the entire duration of the project.
@@ -256,11 +243,10 @@ in the project.
 The measure of success is: (1) faults detected and corrected; (2)
 functionality proven correct using CBMC, symbolic execution engines,
 or SPIN; (3) coverage and other measures of generated tests; and (4)
-reported usability and value by embedded systems engineers,
-particularly students.  For T4.3, the evaluation will be based on a
-formal comparison of the extracted skeleton with full timed automata
-models developed by embedded systems experts. The degree of success
-will be estimated based on the correspondence with a real model.
+reported usability and value by engineers,
+particularly students.  For T4.3, evaluation will be based on
+comparison of extracted skeletons with independently developed full 
+models.
 
 %\subsubsection{Timeline}
 %\label{sec:time-line}

@@ -20,7 +20,7 @@ robots on the DISCOVER platform.
 
 \begin{figure}[!t]
   \centering
-  \includegraphics[width=.7\textwidth]{newoverview}
+  \includegraphics[width=.6\textwidth]{newoverview}
   \caption{Overview of the proposed research.}
   \label{fig:overview}
 \end{figure}
@@ -33,9 +33,7 @@ about the expected environment (constraints on sensor values, etc.),
 and hints to guide heuristic application of tools ranging from fuzzers
 to symbolic execution engines to model checkers.
 While they are not the focus of this project, code to apply advanced static analysis or timed
-automata (TA) model skeletons can also be automatically generated.  
-Our goal is to certify whether the C code truly implements the
-correctness properties in question, with a focus on dynamic approaches:
+automata (TA) model skeletons can also be automatically generated:
 \begin{enumerate}[labelsep=3pt,leftmargin=12pt]
 \item A (generated) TA model can be used to check high-level properties
   of the design, ignoring many low-level implementation details. However, this step
@@ -54,18 +52,15 @@ correctness properties in question, with a focus on dynamic approaches:
 \item The augmented implementation code is then analyzed using the
   \deepstate~\cite{DeepState} framework, which serves as a front-end
   to highly scalable fuzzers, as well as to symbolic execution tools
-  and explicit-state and SAT/SMT-based bounded model checkers that can
-  detect more bugs at the cost of restricted applicability or scalability.  Generated test cases may
-  prove the system faulty, or improve confidence in the system.
+  and model checkers.
 \end{enumerate}
 
 Our focus is on providing a unified specification method that can be
 applied to source code itself, and on enabling and enhancing the dynamic analysis and
-explicit-state and SAT/SMT bounded model
+model
 checking aspects of the approach.  We believe these approaches are
-currently the most difficult to apply, and the most likely to
-dramatically improve the ability to detect bugs in complex embedded
-systems designs.
+currently difficult to apply, but likely to
+dramatically improve the ability to detect bugs.
 
 \paragraph{Principles:} Assuming that an algorithm for an embedded and
 networked system, such as a communication protocol, can in theory be
@@ -96,13 +91,10 @@ concerns about reliability, or an activity during design that only
 indirectly informs the implementation.  That is, the more studied
 problem is producing a runtime semantics for a model; we address the
 problem of reconciling a runtime semantics with a model semantics,
-without unrealistic burden on engineers.  To the extent that developers apply more rigorous
-testing and analysis of their systems, they primarily use unit tests
-and static analysis (and occasionally rudimentary  fuzzing).  Any
+without unrealistic burden on engineers.   Any
 effort to increase the
 adoption of formal methods and automated test generation
-approaches, including implementation-level model checking and symbolic
-execution, is likely to be successful to the extent that it enters
+approaches is likely to be successful only to the extent that it enters
 embedded systems engineering practice via this existing pathway.  Engineers at Google have referred to this
 approach as ``meeting developers where they are''~\cite{meeting}.
 
@@ -128,17 +120,15 @@ derive loop bounds in bounded model checking, and to restrict
 branching factors and store state in explicit-state model checking;
 (4) how to handle intra-program parallelism;
 (5) how to ensure that the methods are sufficiently automatic
-  and behave in ways engineers (not formal modeling, static, or dynamic
-  analysis experts) will expect.
-Our focus will be on \emph{practical} solutions, guided by the
-embedded domain experts, rather than on purely theoretical approaches
-that do not scale to real systems. Practical solutions here require
+  and behave in ways engineers will expect.
+Our focus will be on \emph{practical} solutions, guided by domain experts, rather than on purely theoretical approaches
+that do not scale. Practical solutions here require
 fundamental contributions to system and specification design and
 dynamic analysis and model checking technologies.
 
 \paragraph{Field applications:}
 This project will contribute significantly to the field domains of embedded and networked systems, especially in safety-critical applications where correctness and reliability are vital.
-The practical methods and tools developed by our team will enable domain experts, particularly domain engineers without formal training in formal methods and software testing, to test and verify their code against critical requirements to not only reduce bugs but also gain confidence in their systems.
+The methods and tools developed by our team will enable domain experts without formal training in formal methods and software testing, to test and verify their code to not only reduce bugs but also gain confidence in their systems.
 
 
 %%% Local Variables:
