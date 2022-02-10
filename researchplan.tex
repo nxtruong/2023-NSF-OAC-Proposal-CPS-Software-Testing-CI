@@ -8,13 +8,15 @@
 \label{sec:framac2deepstate}
 \input{framactodeepstate}
 
-\subsection{DeepState and SAT/SMT-Based Bounded Model Checking}
+\subsection{Other DeepState Extensions}
+
+\paragraph{Bounded Model Checking:}
 \input{cbmcplan}
 
-\subsection{DeepState and Explicit-State Model Checking}
+\paragraph{Explicit-State Model Checking:}
 \input{spinplan}
 
-\subsection{DeepState and Timed Automata Model Skeletons}
+\paragraph{Timed Automata Model Skeleton Generation:}
 As noted above, one of our core assumptions is that timed automata can
 model the underlying protocols in many embedded systems.  However,
 writing timed automata models using \uppaal~\cite{uppaal} and
@@ -24,11 +26,15 @@ engineers to make use of these powerful formalisms, we propose 1) to
 enable DeepState to generate \emph{traces} of the annotations related
 to timing that are covered during a run and 2) to build a tool to
 combine and reconcile these traces into a skeleton model for \uppaal~\cite{uppaal} or
-\prism~\cite{KNP2011:CAV}.  The structure of code (function locations
+\prism~\cite{KNP2011:CAV} (as has been done to some extent for Java~\cite{liva2017extracting}).  The structure of code (function locations
 of DeepState annotations) will be used to form the structure of the
 model.  Additional annotations for, e.g. probabilities, may need to be
 added if not present in the code annotations, though DeepState already
 has a primitive support for expressing probabilities that we plan to extend.
+
+\paragraph{Other Tools:}  Galois Inc. has expressed strong interest in
+an (unpaid) ongoing research collaboration to integrate their C and
+C++ relevant tools into DeepState as well, to support our general vision.
 
 \subsection{Case Studies} % for Ecological Monitoring and Control}
 \label{sec:case-study}
