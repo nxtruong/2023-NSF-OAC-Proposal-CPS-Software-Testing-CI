@@ -90,20 +90,23 @@
         group/.append style={fill=blue}
     ]{WP3}{1}{36}\\ [grid]
     \ganttbluebar[
-        name=T31
-    ]{T3.1}{1}{12}\\ [grid]
-    \ganttbluebar[
-        name=T32
-    ]{T3.2}{13}{36}\\ [grid]
+        name=T3
+    ]{T3}{1}{36}\\ [grid]
     \ganttbluebar[
         name=T41
-    ]{T4.1}{7}{12}\\ [grid]        
+    ]{T4.1}{1}{12}\\ [grid]
     \ganttbluebar[
         name=T42
     ]{T4.2}{13}{36}\\ [grid]
     \ganttbluebar[
-        name=T43
-    ]{T4.3}{25}{36}    
+        name=T51
+    ]{T5.1}{7}{12}\\ [grid]        
+    \ganttbluebar[
+        name=T52
+    ]{T5.2}{13}{36}\\ [grid]
+    \ganttbluebar[
+        name=T53
+    ]{T5.3}{25}{36}    
     % %Implementing links
     % \ganttlink[link mid=0.75]{Documentation}{FME}
     % \ganttlink{FMETutorial}{FME}
@@ -115,12 +118,10 @@
 \end{wrapfigure}
 
 The project will be organized into two phases, described by work
-packages.  In the first phase, T3.1 will be conducted along with and
-inform T1.1 (see Figure~\ref{fig:project-schedule}).
-In the second phase, the focus will be on the application of tools in
-T1.2 in tandem with T2.
-Tasks related to case studies (tasks T4.1, and T4.2) will help refine the developed tools especially
-in the final phases of the project.
+packages.  In the first phase, T4.1 will be conducted along with and inform T1.1 (see Figure~\ref{fig:project-schedule}).
+In the second phase, the focus will be on the application of tools in T1.2 in tandem with T2.
+Tasks related to the case studies %(tasks T4.1, and T4.2)
+will help refine the developed tools especially in the final phases of the project.
 
 \paragraph{Work Package 1 (WP1):}  This work package concerns the
 development of and use of \acsl and \eacsl extensions.
@@ -131,10 +132,8 @@ real-world embedded systems.  In particular, there will be a focus on
 a study of the formal semantics of timed
 automaton networks defined in \uppaal and \prism, to determine the
 extent to which shared semantics can be assigned making it possible to
-carry implementation annotations into such formal models.  In addition, this task will include
-initial consultation with engineers from Galois, Inc. to discuss needs for their customers and
-tools.  Galois is a key player in the space of annotations and tools
-for critical low-level system verification.
+carry implementation annotations into such formal models.
+%In addition, this task will include initial consultation with engineers from Galois, Inc. to discuss needs for their customers and tools.  Galois is a key player in the space of annotations and tools for critical low-level system verification.
 
 $\bullet$ T1.2: This task will take feedback from applications of
 tools to generate tests and proofs (T2) into account, to add annotations
@@ -146,8 +145,8 @@ One Ph.D. student will conduct this work, which will last for the entire duratio
 WP1 will be determined by ability of embedded engineers to agree that
 the key properties, including those related to timed automata models, to be checked are (1) all representable by the
 annotations (2) easy to construct (3) easy to read when produced by others and
-(4) maintainable after introduction.  In addition to our own case
-studies, discussion with Galois engineers will inform our evaluation.
+(4) maintainable after introduction.
+% In addition to our own case studies, discussion with Galois engineers will inform our evaluation.
 
 \paragraph{Work Package 2 (WP2):}  This work package covers
 automatically translation of \acsl/\eacsl-annotated code 
@@ -178,35 +177,32 @@ extent, but primarily rely on our connection to case studies.
 For test generation, we will use coverage and faults
 detected as measures~\cite{FuzzerHicks}.  
 
-\paragraph{Work Package 3 (WP3):}  This work package will focus on the field applications described in Section~\ref{sec:case-study}, as both a way to inform the methodology and tool developments.
-WP3 includes the following case studies:
-\paragraph{Wireless sensor network (WSN) case studies on SEGA and DISCOVER.} This %application
+\paragraph{Work Package 3 (WP3):}
+\textcolor{blue}{%
+This work package will focus on consolidating the software developed in the other work packages in an open-source software tool, usable by embedded software engineers, and on the case studies described in Section~\ref{sec:case-study}, as a way to inform the methodology and tool developments in the other tasks}.
+WP3 includes the following components:
+\textcolor{blue}{%
+\paragraph{Open-source software tool.}
+Task T3, that develops the open-source software tool, will span the entire duration of the project, in coordination with the software development tasks in the other work packages.  All the students in this project will contribute to task T3.}
+
+\paragraph{Wireless sensor network (WSN) case study on DISCOVER.} This %application
 is divided into two tasks:
 \noindent  \begin{itemize}[labelsep=3pt,leftmargin=12pt]
-\item T3.1: In this task, the %existing SEGA
-  wireless sensor node systems will be studied thoroughly to extract
-  the key requirements and characteristics of the embedded system
-  implementations.  Timed automaton models of the communication
-  protocol in each system, at different levels of abstraction, may be
-  developed and formally verified in \uppaal and/or \prism, to inform
-  task T1.1.  The system information and models resulting from this
-  task will inform the semantics design and method developments in WP1
-  and WP2.  As time allows we will extend this work to include sensing
+\item T4.1: In this task, the %existing SEGA
+  wireless sensor node systems will be studied thoroughly to extract the key requirements and characteristics of the embedded system implementations.
+  %Timed automaton models of the communication protocol in each system, at different levels of abstraction, may be developed and formally verified in \uppaal and/or \prism, to inform task T1.1.
+  The system information and models resulting from this task will inform the semantics design and method developments in WP1 and WP2.  As time allows, we will extend this work to include sensing
   elements.
-\item T3.2: This task will apply the tools developed in WP1 and WP2 to
-  the WSN systems, %in order
+\item T4.2: This task will apply the tools developed in WP1 and WP2 to the WSN systems, %in order
   to detect and fix bugs in
-  the %embedded software implementations of the
-  communication protocol implementations; in particular, the bugs that
-  cause the intermittent failures in
-  SEGA. % mentioned in Section~\ref{sec:case-study}.
-  It will also provide feedback to the other work packages to refine
-  and improve our tools.
+  the embedded software implementations. % of the
+  % communication protocol implementations; in particular, the bugs that cause the intermittent failures in SEGA. % mentioned in Section~\ref{sec:case-study}.
+  It will also provide feedback to the other work packages to refine and improve our tools.
   \end{itemize}
 
 \paragraph {Multi-robot system case study on DISCOVER.} This study is divided into three tasks:
 \noindent \begin{itemize}[labelsep=3pt,leftmargin=12pt]
-\item T4.1: In this task, a standard multi-robot coordination
+\item T5.1: In this task, a standard multi-robot coordination
   algorithm %currently used with our existing multi-robot system
   will be modeled as a network of timed automata.  Using our insights
   into the robotics application, we will express its performance
@@ -217,12 +213,12 @@ is divided into two tasks:
   identify further needed runtime extensions and semantic connections
   between timed automata theory, implementation annotations, and
   runtime checks.
-\item T4.2: This task will apply the tools developed in WP1 and WP2,
+\item T5.2: This task will apply the tools developed in WP1 and WP2,
   and the robot simulation environment of the DISCOVER platform, to
   the coordinated multi-robot system, in order to validate the
   implementation code, detect and fix possible bugs, and improve
   the tools developed in this project.
-\item T4.3: This task will aim to apply the DeepState-trace driven
+\item T5.3: This task will aim to apply the DeepState-trace driven
   route to produce timed automata skeletons.
   \end{itemize}
 
@@ -230,9 +226,9 @@ As the tasks in this work package are conducted in tandem with WP1 and WP2, to f
 We expect that groups of undergraduate students, in collaboration with
 an embedded systems Ph.D. student and the Ph.D. students in WP1 and WP2, will
 perform the work.
-Close collaboration with the DISCOVER team, led by Dr. Flikkema and Dr. Nghiem, is expected.
+Close collaboration with the DISCOVER team, led by Co-PI Nghiem, is expected.
 
-\paragraph{Evaluation:} In essence, this task \emph{is} the evaluation
+\paragraph{Evaluation:} In essence, this task is the evaluation
 aspect of our project, which forms one of the major thrusts of the
 project.  The successful application of WP1 and WP2 tools to the case
 studies is essentially the driving factor in determining our success
@@ -243,7 +239,7 @@ The measure of success is: (1) faults detected and corrected; (2)
 functionality proven correct using CBMC, symbolic execution engines,
 or SPIN; (3) coverage and other measures of generated tests; and (4)
 reported usability and value by engineers,
-particularly students.  For T4.3, evaluation will be based on
+particularly students.  For T5.3, evaluation will be based on
 comparison of extracted skeletons with independently developed full 
 models.
 
