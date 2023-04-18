@@ -1,7 +1,7 @@
 Sophisticated embedded systems can be found in many safety-critical systems, such as automobiles, airplanes, and medical devices.
-Ensuring the correctness and reliability of these systems are crucial to avoid potentially catastrophic consequences, for which disparate methods and tools have been developed.
+Ensuring the correctness and reliability of these systems is crucial to avoid potentially catastrophic consequences, for which disparate methods and tools have been developed.
 The \textbf{core problem} we aim to address in this proposal is that \textbf{use of formal modeling, advanced static analysis, and advanced dynamic analysis for verification and validation, especially on critical embedded systems, is prohibitively difficult and lacks sufficient synergy for cost-effective application}.
-This is true even of systems built in an academic research context: that is, unless the research is primarily about methods for verifying and testing systems, rather than work on an embedded system for its own sake, these methods are hard to apply.
+This is true even of systems built in an academic research context: that is, unless the research is primarily \emph{about} methods for verifying and testing systems, rather than work on an embedded system for its own sake, these methods are hard to apply.
 Furthermore, even when use of these techniques to ensure correctness, reliability, or security is a focus of the project, such use is almost always limited to one type of effort---model checking, theorem proving, or automated test generation.
 A major cause for this difficulty is the lack of synergy between these related efforts, that is the failure of effort in one context to transfer to another context.
 In short:
@@ -19,9 +19,9 @@ Consider the case of an embedded systems engineer working on a custom, low-energ
 
 
 \paragraph{Proposed Solution:}
-The overarching goal of this project is to develop a \textbf{practical cyber-infrastructure (CI) for verifying and validating real-world embedded systems}.
-The CI consists of \emph{novel methods for combining formal, static, and dynamic analysis} as well as an \emph{open-source software implementation} of these methods.
-In addition, case studies of real-world embedded systems in different application domains will be conducted to evaluate the effectiveness and practicality of the developed CI.
+The overarching goal of this project is to develop a \textbf{practical approach for verifying and validating real-world embedded systems}.
+This consists of \emph{novel methods for combining formal, static, and dynamic analysis} as well as an \emph{open-source software implementation} of these methods.
+In addition, case studies of real-world embedded systems in different application domains will be conducted to evaluate the effectiveness and practicality of the developed methods and tools.
 
 % Methodology / Approach:
 While allowing efforts from any form of formal or automated verification or validation attempt to carry over to other forms %(e.g., formal models to code annotations for static analysis, code annotations to test harnesses, test harnesses to formal models, formal models to test harnesses, etc.)
@@ -43,7 +43,7 @@ We expect developers to learn new tools, but not new programming paradigms or la
   \item The primary obstacle to adoption of formal methods approaches in embedded systems development is not a lack of relevant methods and tools.
   \item In particular, there are methods and tools that apply to the \emph{implementation} of embedded systems in C and C++; every embedded software system requires an implementation.
   \item However, learning and using any one of these tools may or may not ``pay off'' and the effort spent is only of limited application when applying another tool.
-  \item Therefore, to improve embedded systems development via formal methods we need a comprehensive cyber-infrastructure with:
+  \item Therefore, to improve embedded systems development via formal methods we need a comprehensive approach with:
     \begin{enumerate} \item an \emph{implementation-focused} \emph{common framework} for applying methods and tools, and
     \item a focus on \emph{practically-inspired} improvements to methods and tools.
       \end{enumerate}
@@ -61,7 +61,7 @@ Each sensor node typically has some limited computing power (an embedded micropr
 Furthermore, wireless communication in a WSN is often subject to frequent %uncertainty such as
 packet drops and other failures.
 Consequently, some of the major challenges for the reliability and correctness of WSNs include timing and communication uncertainty, and computing and energy constraints.
-In addition, testing and verifying  code for sensor nodes face another significant hurdle due to the nature of interacting directly with the physical world, which involves another level of uncertainty and is not always easily replicable in a software testing or verification tool.
+In addition, testing and verifying  code for sensor nodes faces another significant hurdle due to the nature of interacting directly with the physical world, which involves another level of uncertainty and is not always easily replicable in a software testing or verification tool.
 %
 A multi-robot system (MRS) consists of multiple robots, possibly of different types such as terrestrial robots and aerial drones, which coordinate to perform certain tasks, such as package delivery, disaster rescue, and surveillance.
 An MRS carries similar major challenges as a WSN.
@@ -74,7 +74,7 @@ of embedded and networked systems:
 (1) timing and communication uncertainty,
 (2) complex dynamic behaviors, and
 (3) interactions with the physical world.
-Real-world case studies will be used for validating and demonstrating our proposed CI.
+Real-world case studies will be used for validating and demonstrating our proposed approach.
 % They will be addressed by a combination of approaches, from both the formal method and software testing disciplines and the field application disciplines.
 % Case studies in real-world WSNs and MRS, which are representative of embedded and networked systems and their challenges, will be used for validating and demonstrating our proposed solution.
 
